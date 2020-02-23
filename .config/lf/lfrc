@@ -1,0 +1,41 @@
+# Basic vars
+set shell sh
+set previewer ~/.config/lf/scope
+set shellopts '-eu'
+set ifs "\n"
+set scrolloff 10
+set color256
+set icons
+
+# cmds/functions
+cmd open ${{
+	case $(file --mime-type $f -b) in
+		text/troff)
+			man ./ $f
+			;;
+		text/*)
+			$EDITOR $f
+			;;
+		image/x-xcf|image/svg+xml)
+			setsid gimp $f >/dev/null 2>&1 &
+			;;
+		image/*)
+			sxiv $f &
+			;;
+		audio/*)
+			mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f
+			;;
+		video/*)
+			setsid mpv --input-ipc-server=/tmp/mpvsoc$(date +%%s) $f -quiet >/dev/null 2>&1 &
+			;;
+		application/pdf)
+			setsid zathura $fx >/dev/null 2>&1 &
+			;;
+		*)
+			for f in $fx; do setsid $OPENER $f >/dev/null 2>&1 & done
+			;;
+	esac
+}}
+
+# Bindings
+map D :delete

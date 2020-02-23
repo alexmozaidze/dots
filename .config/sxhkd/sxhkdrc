@@ -1,0 +1,35 @@
+# Reload sxhkd
+ctrl + shift + x
+	kill -SIGTERM $(pidof sxhkd) && sxhkd
+
+# Launch firefox
+ctrl + shift + i
+	x-www-browser
+
+# Launch terminal
+ctrl + shift + t
+	x-terminal-emulator
+
+# Launch dmenu to run any application
+ctrl + shift + d
+	dmenu_run
+
+# Launch video/audio player (they're same for me)
+ctrl + shift + p
+	parole
+
+# Make a screenshot
+ctrl + shift + s
+	scrot
+
+# Open Zathura
+ctrl + shift + z
+	zathura
+
+# Open GIMP
+ctrl + shift + g
+	gimp
+
+# Choose emoji using dmenu and copy it in clipboard
+ctrl + shift + e
+	dmenu-unicode

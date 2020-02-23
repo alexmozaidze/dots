@@ -1,0 +1,26 @@
+#!/bin/env sh
+
+# Default options for programs' aliases
+LS_DEFAULT_OPTIONS="--group-directories-first --color"
+GREP_DEFAULT_OPTIONS="--color=always"
+VIM_DEFAULT_OPTIONS="-n"
+
+# Aliases for Vim/NVim
+alias nvim="nvim $VIM_DEFAULT_OPTIONS"
+alias vim="nvim"
+alias oldvim="/bin/vim $VIM_DEFAULT_OPTIONS"
+
+# Aliases for ls and exa commands
+alias ls="ls ${LS_DEFAULT_OPTIONS}"
+alias la="ls -A ${LS_DEFAULT_OPTIONS}"
+alias ll="ls -Alh ${LS_DEFAULT_OPTIONS}"
+alias exa="exa ${EXA_DEFAULT_OPTIONS}"
+
+# Alias for "grep" command
+alias grep="grep $GREP_DEFAULT_OPTIONS"
+
+# Alias for massive renaming
+alias bulk-rename="qmv -f do"
+
+# Alias for showing time
+alias dtime="date +\"%R:%S\""
