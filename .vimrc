@@ -206,9 +206,6 @@ set diffopt+=iwhite
 " Show everything that can fit when the text doesn't fit
 set display=lastline
 
-" Allow going out of bounds in Visual-Block
-set virtualedit=block
-
 " Make some messages shorter (also removes the annoying intro message)
 set shortmess=aWIc
 
@@ -221,6 +218,10 @@ set hidden
 " Remove the lag for <Esc> key
 set tm=0
 set ttm=-1
+
+" Change cursor on launching/closing Vim
+autocmd VimEnter * silent !echo -ne "\e[1 q"
+autocmd VimLeave * silent !echo -ne "\e[5 q"
 
 " Change cursor shape in different modes
 if $IN_TTY!=1

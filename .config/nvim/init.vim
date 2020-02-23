@@ -109,15 +109,6 @@ let g:user_emmet_mode='ni'
 let delimitMate_expand_cr=1
 
 
-" ----------------------------------------------
-" Onedark (atom-like colorscheme) configurations
-" ----------------------------------------------
-
-
-" Italic fonts: 0 = disable, 1 = enable
-let g:onedark_terminal_italics=0
-
-
 " -------------------------
 " IndentLine configurations
 " -------------------------
@@ -209,9 +200,6 @@ set diffopt+=iwhite
 " Show everything that can fit when the text doesn't fit
 set display=lastline
 
-" Allow going out of bounds in Visual-Block
-set virtualedit=block
-
 " Make some messages shorter (also removes the annoying intro message)
 set shortmess=aWIc
 
@@ -228,7 +216,7 @@ autocmd TermOpen * startinsert
 set tm=0
 set ttm=-1
 
-" Cursor shape in different modes
+" Change cursor shape in different modes
 set guicursor=n-v-sm-r:block,c-i-ci-ve:ver25,cr-o:hor20
 
 " Function for switching to diff mode
