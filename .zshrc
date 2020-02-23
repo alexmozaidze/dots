@@ -2,7 +2,7 @@
 stty -ixon
 
 # Update PATH variable
-export PATH=/sbin:~/Scripts:/usr/local/go/bin:$PATH
+export PATH=/sbin:~/.local/script:$PATH
 
 # Clear the console
 clear
