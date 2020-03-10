@@ -18,9 +18,9 @@ let maxUsage;
 for (let i = 0; i < execSync('nproc'); i++) {
 	const BASEPATH = `/sys/devices/system/cpu/cpu${i}/cpufreq`;
 
-	minFreq     += Number(readFileSync(`${BASEPATH}/scaling_min_freq`).toString());
-	currentFreq += Number(readFileSync(`${BASEPATH}/scaling_cur_freq`).toString());
-	maxFreq     += Number(readFileSync(`${BASEPATH}/scaling_max_freq`).toString());
+	minFreq     += Number(readFileSync(`${BASEPATH}/scaling_min_freq`));
+	currentFreq += Number(readFileSync(`${BASEPATH}/scaling_cur_freq`));
+	maxFreq     += Number(readFileSync(`${BASEPATH}/scaling_max_freq`));
 }
 
 currentUsage = currentFreq - minFreq;
