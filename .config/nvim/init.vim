@@ -1,33 +1,23 @@
 " Inside these 'call lines' you can write 'Plug' instructions
 " That specify each plugin you want to install
-call plug#begin('~/.vim/plugged')
+call plug#begin()
 
 " Automatic closing of quotes, brackets, e.t.c.
 Plug 'Raimondi/delimitMate'
 
-" Lines indentation
-Plug 'Yggdroot/indentLine'
-
-" Some handy commands for Vim
+" Some handy commands
 Plug 'tpope/vim-eunuch'
 
-" Some cool colorschemes for Vim
+" Some cool colorschemes
 Plug 'rafi/awesome-vim-colorschemes'
 
-" A collection of language packs for Vim
+" A collection of language packs
 Plug 'sheerun/vim-polyglot'
 
 " Cool lookin' statusline 😎
 Plug 'itchyny/lightline.vim'
 
-" Emmet, for fast HTML work
-Plug 'mattn/emmet-vim'
-
-" Fzf, for fast files search
-Plug 'junegunn/fzf', { 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-
-" Vim-Tmux navigator, for faster split-switching
+" Vim-Tmux navigator, for faster split switching
 Plug 'christoomey/vim-tmux-navigator'
 
 " Smooth scroll plugin
@@ -37,6 +27,15 @@ Plug 'terryma/vim-smooth-scroll'
 Plug 'vim-syntastic/syntastic'
 
 call plug#end()
+
+
+" --------------------------------
+" Vim-tmux navigator configuration
+" --------------------------------
+
+
+" Disable tmux navigator when zooming the Vim pane
+let g:tmux_navigator_disable_when_zoomed=1
 
 
 " -----------------------
@@ -63,14 +62,13 @@ let g:syntastic_c_checkers=['gcc']
 
 
 let g:lightline = {
-  \ 'colorscheme': 'onedark',
-  \ }
+            \ 'colorscheme': 'onedark',
+            \ }
 
 
 " --------------------
 " Netrw configurations
 " --------------------
-
 
 " Remove the banner
 let g:netrw_banner=0
@@ -85,21 +83,6 @@ let g:netrw_browse_split=0
 let g:netrw_winsize=25
 
 
-" --------------------
-" Emmet configurations
-" --------------------
-
-
-" Leader key.
-"
-" NOTE:
-" You'll still need to type a comma for completion
-let g:user_emmet_leader_key='<C-q>'
-
-" Make Emmet work only in normal and insert modes
-let g:user_emmet_mode='ni'
-
-
 " --------------------------
 " DelimitMate configurations
 " --------------------------
@@ -109,38 +92,13 @@ let g:user_emmet_mode='ni'
 let delimitMate_expand_cr=1
 
 
-" -------------------------
-" IndentLine configurations
-" -------------------------
-
-
-" Levels separator
-let g:indentLine_char='▏'
-
-" 0 = use colorscheme default color for conceal
-" 1 = use custom color for conceal
-let g:indentLine_setColors=1
-
-" IMPORTANT:
-" IndentLine overrides your conceallevel/concealcursor values when active
-let g:indentLine_concealcursor=""
-let g:indentLine_conceallevel=2
-
-" Disable indentLine for JSON
-let g:vim_json_syntax_conceal=0
-
-" Disable lines indentation on help pages and emacs lisp files
-autocmd Filetype help,el IndentLinesDisable
-
-
 " --------------------------
 " General Vim configurations
 " --------------------------
 
 
-" Search down into subfolders
-" Provides tab-completion for all file-related tasks
-set path+=**
+" Where to search for files (for instance when :find command is used)
+set path=.,,.local/**,.config/**,**
 
 " Allow filetype detection, plugins and indentation
 filetype plugin indent on
@@ -175,24 +133,12 @@ set shiftround
 " High number like 999 will make the cursor to always be in the middle
 set scrolloff=0
 
-" Fixes common backspace problems
-set backspace=indent,eol,start
-
-" Display what command you type
-set showcmd
-
-" Encoding
-set encoding=utf-8
-
-" Highlight matching search patterns
-set hlsearch
-
-" Include matching uppercase words with lowercase search term
+" Ignore letters case
 set ignorecase
 
 " Store info from no more than 100 files at a time, 9999 lines of text, 100kb of data.
 " Useful for copying large amounts of data between files.
-set viminfo='100,<9999,s100
+set shada='100,<9999,s100
 
 " Avoid whitespace comparison in diff mode
 set diffopt+=iwhite
@@ -203,23 +149,66 @@ set display=lastline
 " Make some messages shorter (also removes the annoying intro message)
 set shortmess=aWIc
 
-" Use Vim's own clipboard
+" Use * register for all copy/cut commands
 set clipboard=unnamed
 
-" Hide the unmodified buffer if user leaves it
+" Hide unmodified buffer if user leaves it
 set hidden
 
-" Automaticaly enter terminal mode when invoking terminal
-autocmd TermOpen * startinsert
-
-" Remove lag for escape sequences
-set tm=0
-set ttm=-1
+" Enable truecolor support
+set termguicolors
 
 " Change cursor shape in different modes
-set guicursor=n-v-sm-r:block,c-i-ci-ve:ver25,cr-o:hor20
+set guicursor=o-cr-n-v-sm-r:block,c-i-ci-ve:ver25
 
-" Function for switching to diff mode
+" Display tabs as '▏   '
+set list
+set listchars=tab:▏\ 
+
+" Do not redraw screen while executing macros, mappings, e.t.c.
+set lazyredraw
+
+" Time in milliseconds to wait for a mapped sequence to complete
+"
+" NOTE:
+" 86400000 milliseconds is 1 day lol
+set tm=86400000
+
+" Highlight matching pairs of brackets
+" Use the '%' character to jump between them.
+set matchpairs+=<:>
+
+" Always display statusline
+set laststatus=2
+
+" Change colorscheme
+colo onedark
+
+" Show line numbers
+set number
+" Show relative line numbers
+set relativenumber
+" Numbers will be at least N characters wide
+set numberwidth=4
+
+" Disable mode showing
+set noshowmode
+
+" No lines indentation and line numbers in terminal mode
+autocmd TermEnter * set nolist nonumber norelativenumber
+autocmd TermLeave * set list number relativenumber
+
+" Makes some characters dissapear or replaces them in order for text to look better.
+" Effect doesn't appear on the line the cursor is on because concealcursor is empty.
+"
+" NOTE:
+" IndentLine overrides your values when active,
+" be sure to change values not only here but in the indentLine's
+" configurations as well, otherwise conceal will be different.
+set conceallevel=2
+set concealcursor=""
+
+" Function for viewing difference between current buffer and an actual file
 " :diffoff to disable diff mode for current buffer
 function! s:DiffWithSaved()
 	let filetype=&ft
@@ -231,78 +220,77 @@ endfunction
 " Command to call function above
 command! DiffSaved call s:DiffWithSaved()
 
-" Display tabs as '▏   '
-set list
-set listchars=tab:▏\ 
+" Unmap <Space> and make <Space> act like <Space>
+nmap <Space> <Nop>
 
-" Highlight matching pairs of brackets
-" Use the '%' character to jump between them.
-set matchpairs+=<:>
+" Remap X to delete a line
+nnoremap <silent> X dd
 
-" Always display statusline
-set laststatus=2
+" Remap Y to yank till the end of the line
+nnoremap <silent> Y y$
 
-" Change to atom-like colorscheme
-colorscheme onedark
+" Remap dl to delete a character after the cursor
+nnoremap <silent> dl lxh
 
-" Show line numbers
-set number
-" Show relative line numbers
-set relativenumber
+" Remap <C-e> to move the cursor to the end of the line
+inoremap <silent> <C-e> <C-o>$
 
-" Enable mode showing
-set noshowmode
+" Remap <C-a> to move the cursor to the begining of the line
+inoremap <silent> <C-a> <C-o>^
 
-" Show tabs only if there's more than one tab
-set showtabline=2
+" Map for saving a file
+nnoremap <silent> <Space>w :w<CR>
+nnoremap <silent> <Space>W :w!<CR>
+nnoremap <silent> <Space><Space>w :SudoWrite<CR>
+nnoremap <silent> <Space><Space>W :SudoWrite!<CR>
 
-" Makes some characters dissapear or replaces them in order for text to look better.
-" Effect doesn't appear on the line the cursor is on because concealcursor is empty.
-"
-" WARNING:
-" IndentLine overrides your values when active,
-" be sure to change values not only here but in the indentLine's
-" configurations as well, otherwise conceal will be different.
-set conceallevel=2
-set concealcursor=""
+" Map for quitting a file (or closing a pane)
+nnoremap <silent> <Space>q :q<CR>
+nnoremap <silent> <Space>Q :q!<CR>
+nnoremap <silent> <Space><Space>q :qa<CR>
+nnoremap <silent> <Space><Space>Q :qa!<CR>
 
-" Maps for toggling the indent lines of the current buffer
-nnoremap <silent> <F1> :IndentLinesToggle<CR>:set invlist<CR>
-inoremap <silent> <F1> <C-o>:IndentLinesToggle<CR><C-o>:set invlist<CR>
+" Map for save&quit
+nnoremap <silent> <Space>s :wq<CR>
+nnoremap <silent> <Space>S :wq!<CR>
+nnoremap <silent> <Space><Space>s :wqa<CR>
+nnoremap <silent> <Space><Space>S :wqa!<CR>
 
-" Vim's auto indentation feature doesn't work properly with text copied from
-" Outside of Vim. Press the <F2> key to toggle paste mode on/off
-set pastetoggle=<F2>
+" Map for re-editing current file (if changes was made outside of Vim this is useful)
+nnoremap <silent> <Space>e :e<CR>
+nnoremap <silent> <Space>E :e!<CR>
 
-" Maps for toggling lines numbers
-nnoremap <silent> <F3> :set invnumber invrelativenumber<CR>
-inoremap <silent> <F3> <C-o>:set invnumber invrelativenumber<CR>
+" Map for toggling the indentation lines of the current buffer
+nnoremap <silent> <Space><Tab> :set invlist<CR>
 
-" Maps for removing highlights of search patterns
-nnoremap <silent> <F4> :noh<CR>
-inoremap <silent> <F4> <C-o>:noh<CR>
+" Map for toggling lines numbers
+nnoremap <silent> <Space>n :set invnumber invrelativenumber<CR>
 
-" Maps for fixing syntax highlight
-nnoremap <silent> <F5> :syntax sync fromstart<CR>
-inoremap <silent> <F5> <C-o>:syntax sync fromstart<CR>
+" Map for removing highlights of search patterns
+nnoremap <silent> <Space>h :noh<CR>
 
-" Maps for detecting filetype
-nnoremap <silent> <F6> :filetype detect<CR>
-inoremap <silent> <F6> <C-o>:filetype detect<CR>
+" Map for document indentation
+nnoremap <silent> <Space>i gg=G<C-o>
+
+" Map for detecting filetype
+nnoremap <silent> <Space>f :filetype detect<CR>
+
+" Map for fixing syntax highlight and redrawing the screen
+nnoremap <silent> <Space>r :syntax sync fromstart<CR>:mode<CR>
+
+" Maps for smooth scrolling
+nnoremap <silent> <C-u> :call smooth_scroll#up  (&scroll,   18, 2)<CR>
+nnoremap <silent> <C-d> :call smooth_scroll#down(&scroll,   18, 2)<CR>
+
+nnoremap <silent> <C-b> :call smooth_scroll#up  (&scroll*2, 20, 4)<CR>
+nnoremap <silent> <C-f> :call smooth_scroll#down(&scroll*2, 20, 4)<CR>
 
 " Maps for moving throught document when using 1 hand
 "
 " NOTE:
-" Those mappings are useless if you're not scratching
-" your nose for 10 hours nonstop like I do
-nnoremap <silent> <Up> <C-y>H0
-nnoremap <silent> <Down> <C-e>H0
-nnoremap <silent> <Left> HggH0
-nnoremap <silent> <Right> LGH0
-
-" Maps for smooth scrolling
-noremap <silent> <C-u> :call smooth_scroll#up  (&scroll,   18, 2)<CR>
-noremap <silent> <C-d> :call smooth_scroll#down(&scroll,   18, 2)<CR>
-
-noremap <silent> <C-b> :call smooth_scroll#up  (&scroll*2, 20, 4)<CR>
-noremap <silent> <C-f> :call smooth_scroll#down(&scroll*2, 20, 4)<CR>
+" Those mappings are made so that I can scratch my back and view the codebase
+" at the same time
+nnoremap <silent> <Left> :call smooth_scroll#up   (&scroll,   18, 2)<CR>
+nnoremap <silent> <Right> :call smooth_scroll#down(&scroll,   18, 2)<CR>
+nnoremap <silent> <Up> <C-y>k
+nnoremap <silent> <Down> <C-e>j

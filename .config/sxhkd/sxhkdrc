@@ -4,19 +4,15 @@ ctrl + shift + x
 
 # Launch firefox
 ctrl + shift + i
-	x-www-browser
+	firefox
 
 # Launch terminal
 ctrl + shift + t
-	x-terminal-emulator
+	st
 
 # Launch dmenu to run any application
 ctrl + shift + d
 	dmenu_run
-
-# Launch video/audio player (they're same for me)
-ctrl + shift + p
-	parole
 
 # Make a screenshot
 ctrl + shift + s
@@ -32,4 +28,4 @@ ctrl + shift + g
 
 # Choose emoji using dmenu and copy it in clipboard
 ctrl + shift + e
-	dmenu-unicode
+	emacs

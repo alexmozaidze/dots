@@ -1,0 +1,31 @@
+#!/bin/env node
+
+// Required modules
+const { readFileSync } = require('fs');
+const { execSync } = require('child_process');
+
+// Defining variables
+let minFreq = 0;
+
+let currentFreq = 0;
+let currentUsage;
+let currentUsagePercentage;
+
+let maxFreq = 0;
+let maxUsage;
+
+// Summarizing total CPU usage
+for (let i = 0; i < execSync('nproc'); i++) {
+	const BASEPATH = `/sys/devices/system/cpu/cpu${i}/cpufreq`;
+
+	minFreq     += Number(readFileSync(`${BASEPATH}/scaling_min_freq`).toString());
+	currentFreq += Number(readFileSync(`${BASEPATH}/scaling_cur_freq`).toString());
+	maxFreq     += Number(readFileSync(`${BASEPATH}/scaling_max_freq`).toString());
+}
+
+currentUsage = currentFreq - minFreq;
+maxUsage = maxFreq - minFreq;
+
+currentUsagePercentage = Math.floor((currentUsage / maxUsage) * 100);
+
+console.log(`${currentUsagePercentage}%`);

@@ -2,13 +2,13 @@
 stty -ixon
 
 # Update PATH variable
-export PATH=/sbin:~/.local/script:$PATH
+export PATH=/sbin:~/.local/bin:$PATH
 
 # Clear the console
 clear
 
 # Display some cool system info
-ufetch-debian
+ufetch
 
 # Check if running in tty and define some variables
 case $(tty) in
@@ -29,7 +29,7 @@ export EDITOR="nvim"
 export VISUAL="$EDITOR"
 
 # Variable that contains path to current vim sessions directory
-export VSD=~/.vim/sessions
+export VSD=~/.local/share/nvim/sessions
 
 # Enable colors and change prompt:
 autoload -U colors && colors
@@ -62,21 +62,9 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey -v '^?' backward-delete-char
 
-# Use lf to switch directories and bind it to ctrl-o
-lfcd () {
-	tmp="$(mktemp)"
-	lf -last-dir-path="$tmp" "$@"
-	if [ -f "$tmp" ]; then
-		dir="$(cat "$tmp")"
-		rm -f "$tmp"
-		[ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-	fi
-}
-bindkey -s '^o' 'lfcd\n'
+# Keybindings
 bindkey -s '^x' 'startx\n'
-bindkey -s '^t' 'tmux new -A -s Default\n'
-bindkey -s '^f' 'fbterm\n'
-bindkey -s '^q' '^l'
+bindkey -s '^t' 'tmux\n'
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
@@ -109,4 +97,4 @@ bindkey '^e' edit-command-line
 	[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 # Syntax highlight (needs to be at the end)
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null
+source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh 2> /dev/null
