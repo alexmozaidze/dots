@@ -17,9 +17,6 @@ Plug 'sheerun/vim-polyglot'
 " Cool lookin' statusline 😎
 Plug 'itchyny/lightline.vim'
 
-" Vim-Tmux navigator, for faster split switching
-Plug 'christoomey/vim-tmux-navigator'
-
 " Smooth scroll plugin
 Plug 'terryma/vim-smooth-scroll'
 
@@ -29,13 +26,12 @@ Plug 'vim-syntastic/syntastic'
 call plug#end()
 
 
-" --------------------------------
-" Vim-tmux navigator configuration
-" --------------------------------
+" ---------------------
+" Onedark configuration
+" ---------------------
 
 
-" Disable tmux navigator when zooming the Vim pane
-let g:tmux_navigator_disable_when_zoomed=1
+let g:onedark_terminal_italics=1
 
 
 " -----------------------
@@ -138,7 +134,7 @@ set ignorecase
 
 " Store info from no more than 100 files at a time, 9999 lines of text, 100kb of data.
 " Useful for copying large amounts of data between files.
-set shada='100,<9999,s100
+set shada=\'100,<9999,s100
 
 " Avoid whitespace comparison in diff mode
 set diffopt+=iwhite
@@ -239,22 +235,16 @@ inoremap <silent> <C-e> <C-o>$
 inoremap <silent> <C-a> <C-o>^
 
 " Map for saving a file
-nnoremap <silent> <Space>w :w<CR>
-nnoremap <silent> <Space>W :w!<CR>
-nnoremap <silent> <Space><Space>w :SudoWrite<CR>
-nnoremap <silent> <Space><Space>W :SudoWrite!<CR>
+nnoremap <silent> <Space>w :confirm w<CR>
+nnoremap <silent> <Space>W :SudoWrite<CR>
 
 " Map for quitting a file (or closing a pane)
-nnoremap <silent> <Space>q :q<CR>
-nnoremap <silent> <Space>Q :q!<CR>
-nnoremap <silent> <Space><Space>q :qa<CR>
-nnoremap <silent> <Space><Space>Q :qa!<CR>
+nnoremap <silent> <Space>q :confirm q<CR>
+nnoremap <silent> <Space>Q :confirm qa<CR>
 
 " Map for save&quit
-nnoremap <silent> <Space>s :wq<CR>
-nnoremap <silent> <Space>S :wq!<CR>
-nnoremap <silent> <Space><Space>s :wqa<CR>
-nnoremap <silent> <Space><Space>S :wqa!<CR>
+nnoremap <silent> <Space>s :confirm wq<CR>
+nnoremap <silent> <Space>S :confirm wqa<CR>
 
 " Map for re-editing current file (if changes was made outside of Vim this is useful)
 nnoremap <silent> <Space>e :e<CR>

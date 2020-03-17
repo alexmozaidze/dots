@@ -1,0 +1,3 @@
+#!/bin/sh
+[[ $IN_TTY == 1 ]] && echo "$(date +%R) | $(sys-info)" || date +%R
+

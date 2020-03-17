@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale '/home/alex/git/dragon_wall.png' 
+feh --no-fehbg --bg-center '/home/alex/Wallpapers/Red moon.jpg' 

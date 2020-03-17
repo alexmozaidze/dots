@@ -27,5 +27,9 @@ ctrl + shift + g
 	gimp
 
 # Choose emoji using dmenu and copy it in clipboard
+ctrl + shift + u
+	emoji
+
+# Open Emacs
 ctrl + shift + e
 	emacs
