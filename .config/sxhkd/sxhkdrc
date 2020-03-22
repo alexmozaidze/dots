@@ -8,7 +8,7 @@ ctrl + shift + i
 
 # Launch terminal
 ctrl + shift + t
-	st
+	st -e tmux -f ~/.config/tmux/tmux.conf
 
 # Launch dmenu to run any application
 ctrl + shift + d

@@ -1,7 +1,7 @@
 #!/bin/env sh
 
 # Default options for programs' aliases
-LS_DEFAULT_OPTIONS="--group-directories-first --color"
+LS_DEFAULT_OPTIONS="--group-directories-first --color=always"
 GREP_DEFAULT_OPTIONS="--color=always"
 
 # Nvim aliase
@@ -23,3 +23,9 @@ alias bulk-rename="qmv -f do"
 
 # Alias for showing time
 alias dtime="date +\"%R:%S\""
+
+# Aliases for openrc-init
+alias reboot="sudo openrc-shutdown -r now"
+alias halt="sudo openrc-shutdown -H now"
+alias shutdown="sudo openrc-shutdown"
+alias poweroff="sudo openrc-shutdown -p now"

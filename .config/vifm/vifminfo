@@ -1,0 +1,64 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/alex/
+	..
+1584575942
+'b
+	/home/alex/bin/
+	..
+1584575942
+'h
+	/home/alex/
+	..
+1584575942
+'z
+	/home/alex/.config//vifm
+	..
+1584575942
+
+# Bookmarks:
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/alex
+	Wallpapers
+4
+d/home/alex/Wallpapers
+	..
+0
+d/home/alex
+	videos
+8
+
+# Right window history (oldest to newest):
+D/home/alex
+	Wallpapers
+4
+
+# Command line history (oldest to newest):
+:h 
+:bmarks
+:help higlight
+:q
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:

@@ -65,6 +65,7 @@ bindkey -v '^?' backward-delete-char
 # Keybindings
 bindkey -s '^x' 'startx\n'
 bindkey -s '^t' 'tmux\n'
+bindkey -s '^f' 'vifm\n'
 
 # Change cursor shape for different vi modes.
 function zle-keymap-select {
@@ -95,6 +96,8 @@ bindkey '^e' edit-command-line
 # Load aliases and shortcuts if existent.
 	[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc"
 	[ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
+
+[ "$(tty)" = "/dev/tty1" ] && startx
 
 # Syntax highlight (needs to be at the end)
 source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh 2> /dev/null

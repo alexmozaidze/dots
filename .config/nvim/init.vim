@@ -20,10 +20,21 @@ Plug 'itchyny/lightline.vim'
 " Smooth scroll plugin
 Plug 'terryma/vim-smooth-scroll'
 
-" Syntax checker
-Plug 'vim-syntastic/syntastic'
+" Vim-TMux navigator
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
+
+
+" ---------------------
+" Onedark configuration
+" ---------------------
+
+
+inoremap <silent> <C-h> <C-o>:TmuxNavigateLeft <CR>
+inoremap <silent> <C-j> <C-o>:TmuxNavigateDown <CR>
+inoremap <silent> <C-k> <C-o>:TmuxNavigateUp   <CR>
+inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<CR>
 
 
 " ---------------------
@@ -34,24 +45,6 @@ call plug#end()
 let g:onedark_terminal_italics=1
 
 
-" -----------------------
-" Syntastic configuration
-" -----------------------
-
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_check_on_open=1
-let g:syntastic_check_on_wq=0
-
-let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_c_checkers=['gcc']
-
-
 " ------------------------
 " Lightline configurations
 " ------------------------
@@ -60,6 +53,14 @@ let g:syntastic_c_checkers=['gcc']
 let g:lightline = {
             \ 'colorscheme': 'onedark',
             \ }
+
+" Statusline separators
+let g:lightline.separator =    { 'left': '', 'right': '' }
+let g:lightline.subseparator = { 'left': '│', 'right': '│' }
+
+" Tabline separators
+let g:lightline.tabline_separator =    { 'left': '', 'right': '' }
+let g:lightline.tabline_subseparator = { 'left': '', 'right': '' }
 
 
 " --------------------
@@ -145,14 +146,18 @@ set display=lastline
 " Make some messages shorter (also removes the annoying intro message)
 set shortmess=aWIc
 
-" Use * register for all copy/cut commands
+" Use + register (X clipboard) for all copy/cut commands
 set clipboard=unnamed
 
 " Hide unmodified buffer if user leaves it
 set hidden
 
-" Enable truecolor support
-set termguicolors
+" Enable truecolor support if not in TTY
+if $IN_TTY =~ '0'
+	set termguicolors
+else
+	set notermguicolors
+endif
 
 " Change cursor shape in different modes
 set guicursor=o-cr-n-v-sm-r:block,c-i-ci-ve:ver25
@@ -179,6 +184,8 @@ set laststatus=2
 
 " Change colorscheme
 colo onedark
+" Don't change background (enables transparency)
+hi Normal guibg=NONE ctermbg=NONE
 
 " Show line numbers
 set number
@@ -193,6 +200,9 @@ set noshowmode
 " No lines indentation and line numbers in terminal mode
 autocmd TermEnter * set nolist nonumber norelativenumber
 autocmd TermLeave * set list number relativenumber
+
+" Automaticaly center the view after resizing Vim
+autocmd VimResized * norm zz
 
 " Makes some characters dissapear or replaces them in order for text to look better.
 " Effect doesn't appear on the line the cursor is on because concealcursor is empty.
@@ -220,41 +230,30 @@ command! DiffSaved call s:DiffWithSaved()
 nmap <Space> <Nop>
 
 " Remap X to delete a line
-nnoremap <silent> X dd
+nmap <silent> X dd
 
 " Remap Y to yank till the end of the line
-nnoremap <silent> Y y$
+nmap <silent> Y y$
 
 " Remap dl to delete a character after the cursor
-nnoremap <silent> dl lxh
+nmap <silent> dl lxh
 
-" Remap <C-e> to move the cursor to the end of the line
-inoremap <silent> <C-e> <C-o>$
+" Center the view after moving to next search pattern
+nmap <silent> n nzz
+nmap <silent> N Nzz
 
-" Remap <C-a> to move the cursor to the begining of the line
-inoremap <silent> <C-a> <C-o>^
-
-" Map for saving a file
 nnoremap <silent> <Space>w :confirm w<CR>
-nnoremap <silent> <Space>W :SudoWrite<CR>
+nnoremap <silent> <Space>W :confirm wa<CR>
+nnoremap <silent> <Space><Space>w :SudoWrite<CR>
+nnoremap <silent> <Space><Space>W :SudoWrite<CR>
 
-" Map for quitting a file (or closing a pane)
 nnoremap <silent> <Space>q :confirm q<CR>
 nnoremap <silent> <Space>Q :confirm qa<CR>
 
-" Map for save&quit
-nnoremap <silent> <Space>s :confirm wq<CR>
-nnoremap <silent> <Space>S :confirm wqa<CR>
-
-" Map for re-editing current file (if changes was made outside of Vim this is useful)
-nnoremap <silent> <Space>e :e<CR>
-nnoremap <silent> <Space>E :e!<CR>
+nnoremap <silent> <Space>s :wqa<CR>
 
 " Map for toggling the indentation lines of the current buffer
 nnoremap <silent> <Space><Tab> :set invlist<CR>
-
-" Map for toggling lines numbers
-nnoremap <silent> <Space>n :set invnumber invrelativenumber<CR>
 
 " Map for removing highlights of search patterns
 nnoremap <silent> <Space>h :noh<CR>

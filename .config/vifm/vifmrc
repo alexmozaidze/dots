@@ -1,0 +1,45 @@
+" vim: filetype=vifm
+source ~/.config/vifm/vifmshortcuts
+
+set vimhelp
+set vicmd=$EDITOR
+set syscalls
+set nofollowlinks
+set sortnumbers
+set undolevels=100
+set wildmenu
+set wildstyle=popup
+set scrolloff=4
+set ignorecase
+set nohlsearch
+set incsearch
+set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
+set tm=86400000
+colo alex
+
+map R :restart<CR>
+map x :!sxiv -ft * 2>/dev/null &<CR>
+nnoremap o :file &<CR>
+map E :!$EDITOR %f<CR>
+map mkd :mkdir<space>
+map bg :!setbg %f &<CR>
+map X :!ext %f &<CR>
+nnoremap s :shell<CR>
+nnoremap w :view<CR>
+vnoremap w :view<CR>gv
+nnoremap yd :!echo %d | xclip %i<CR>
+nnoremap yf :!echo %c:p | xclip %i<CR>
+nnoremap I cw<c-a>
+nnoremap cc cw<c-u>
+nnoremap A cw
+nnoremap ,w :set wrap!<CR>
+nmap q ZQ
+nmap s tj
+nnoremap <Space>u :unselect *<CR>
+nnoremap <Space>a :select *<CR>
+nnoremap <Space>h <C-w>h
+nnoremap <Space>j <C-w>j
+nnoremap <Space>k <C-w>k
+nnoremap <Space>l <C-w>l
+
+set vifminfo=dhistory,chistory,tui,shistory,phistory,fhistory,dirstack,registers,bookmarks,bmarks
