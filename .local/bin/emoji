@@ -1,2 +1,2 @@
 #!/bin/sh
-cut -d ';' -f1 ~/.local/share/emoji | dmenu -i -l 20 | sed "s/ .*//" | tr -d '\n' | xclip -selection clipboard
+cut -d ';' -f1 ~/.local/share/emoji | dmenu -i -F -l 20 | sed "s/ .*//" | tr -d '\n' | xclip -selection clipboard

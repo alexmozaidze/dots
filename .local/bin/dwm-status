@@ -1,5 +1,5 @@
-#!/bin/sh
+#!/bin/zsh
 while true; do
-	xsetroot -name " $(date +' %R │  %d/%m/%Y') │ 🧠 $(mem-info) "
-	sleep 4s
-done
+	xsetroot -name " 🧠 $(mem-info) │ $(dwm-us-ru-layout-checker) │ 🕒 $(date +%H:%M) │  $(date +%d/%m/%Y) "
+	sleep 2
+done &

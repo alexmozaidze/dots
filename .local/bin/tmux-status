@@ -1,3 +1,2 @@
-#!/bin/sh
-[[ $IN_TTY == 1 ]] && echo "$(date +%R) | $(mem-info)" || date +%R
-
+#!/bin/zsh
+[[ $IN_TTY == 1 ]] && echo "$(date +%d/%m/%Y) | $(mem-info)" || date +%d/%m/%Y

@@ -25,7 +25,7 @@ alias bulk-rename="qmv -f do"
 alias dtime="date +\"%R:%S\""
 
 # Aliases for openrc-init
-alias reboot="sudo openrc-shutdown -r now"
-alias halt="sudo openrc-shutdown -H now"
-alias shutdown="sudo openrc-shutdown"
-alias poweroff="sudo openrc-shutdown -p now"
+#alias reboot="sudo openrc-shutdown -r now"
+#alias halt="sudo openrc-shutdown -H now"
+#alias shutdown="sudo openrc-shutdown"
+#alias poweroff="sudo openrc-shutdown -p now"

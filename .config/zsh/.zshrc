@@ -8,7 +8,7 @@ export PATH=/sbin:~/.local/bin:$PATH
 clear
 
 # Display some cool system info
-ufetch
+#ufetch
 
 # Check if running in tty and define some variables
 case $(tty) in
@@ -99,5 +99,8 @@ bindkey '^e' edit-command-line
 
 [ "$(tty)" = "/dev/tty1" ] && startx
 
+# Source insult script
+source ~/.local/bin/zsh-insult
+
 # Syntax highlight (needs to be at the end)
-source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh 2> /dev/null
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2> /dev/null
