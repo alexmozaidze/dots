@@ -1,0 +1,28 @@
+#!/bin/zsh
+function choose_session() {
+	chosen="$(tmux ls | dmenu -F -l 30 | cut -d ':' -f 1)"
+	[ -z "${chosen// }" ] && return
+	case "$1" in
+		"attach")
+			st -e tmux attach -t "$chosen" && exit 0
+			;;
+		"kill")
+			tmux kill-session -t "$chosen" && exit 0
+	esac
+}
+
+while true
+do
+	chosen="$(echo "1: New Session\n2: Choose session\n3: Kill session" | dmenu -p "Amount of sessions: $(tmux ls | wc -l)" -n -F -l 30 | cut -d ':' -f 1)"
+	if [ -z "${chosen// }" ]; then
+		exit 0
+	elif [ "$chosen" = "1" ]; then
+		st -e tmux new && exit 0
+	elif [ "$chosen" = "2" ]; then
+		choose_session "attach"
+	elif [ "$chosen" = "3" ]; then
+		choose_session "kill"
+	else
+		exit 1
+	fi
+done

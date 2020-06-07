@@ -2,8 +2,11 @@
 " That specify each plugin you want to install
 call plug#begin()
 
-" Completion engine
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Fugitive
+Plug 'tpope/vim-fugitive'
+
+" Easy aligning
+Plug 'junegunn/vim-easy-align'
 
 " Automatic closing of quotes, brackets, e.t.c.
 Plug 'Raimondi/delimitMate'
@@ -23,72 +26,26 @@ Plug 'itchyny/lightline.vim'
 " Smooth scroll plugin
 Plug 'terryma/vim-smooth-scroll'
 
-" Vim-TMux navigator
-"Plug 'christoomey/vim-tmux-navigator'
+" Syntax checker
+Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
 
-" -----------------
-" COC Configuration
-" -----------------
+" -----------------------
+" Syntastic configuration
+" -----------------------
 
 
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocAction('format')
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Dunno what and why but ok
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-" Functions needed for COC mappings
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Add (Neo)Vim's native statusline support.
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-
-" --------------------------------
-" Vim-Tmux-Navigator configuration
-" --------------------------------
-
-
-"inoremap <silent> <C-h> <C-o>:TmuxNavigateLeft <CR>
-"inoremap <silent> <C-j> <C-o>:TmuxNavigateDown <CR>
-"inoremap <silent> <C-k> <C-o>:TmuxNavigateUp   <CR>
-"inoremap <silent> <C-l> <C-o>:TmuxNavigateRight<CR>
-
-
-" ---------------------
-" Onedark configuration
-" ---------------------
-
-
-let g:onedark_terminal_italics=1
+let g:syntastic_always_populate_loc_list=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_check_on_open=1
+let g:syntastic_check_on_wq=0
+let g:syntastic_c_checkers=["make"]
 
 
 " ------------------------
@@ -182,10 +139,7 @@ set noexpandtab
 set shiftround
 
 " Minimal number of screen lines to keep above and below the cursor
-"
-" NOTE:
-" High number like 999 will make the cursor to always be in the middle
-set scrolloff=6
+set scrolloff=16
 
 " Ignore letters case
 set ignorecase
@@ -196,6 +150,9 @@ set shada=\'100,<9999,s100
 
 " Avoid whitespace comparison in diff mode
 set diffopt+=iwhite
+
+" Highlight the line cursor is on
+set cul
 
 " Show everything that can fit when the text doesn't fit
 set display=lastline
@@ -209,19 +166,8 @@ set clipboard=unnamed
 " Hide unmodified buffer if user leaves it
 set hidden
 
-" Leave more space for displaying messages (COC)
-set cmdheight=2
-
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
-set updatetime=300
-
-" Enable truecolor support if not in TTY
-if $IN_TTY =~ '0'
-	set termguicolors
-else
-	set notermguicolors
-endif
+" Enable truecolor
+set termguicolors
 
 " Change cursor shape in different modes
 set guicursor=o-cr-n-v-sm-r:block,c-i-ci-ve:ver25
@@ -296,6 +242,9 @@ let mapleader=" "
 nmap <silent> <Space> <Nop>
 nmap <silent> <Space><Space> <Nop>
 
+" Remap U to redo the changes
+nmap <silent> U <C-r>
+
 " Remap X to delete a line
 nmap <silent> X dd
 
@@ -308,6 +257,10 @@ nmap <silent> dl lxh
 " Center the view after moving to next search pattern
 nmap <silent> n nzz
 nmap <silent> N Nzz
+
+" Center the view after in jump list
+nmap <silent> <C-o> <C-o>zz
+nmap <silent> <C-i> <C-i>zz
 
 nnoremap <silent> <Leader>w :confirm w<CR>
 nnoremap <silent> <Leader>W :confirm wa<CR>
@@ -336,11 +289,11 @@ nnoremap <silent> <Leader>f :filetype detect<CR>
 nnoremap <silent> <Leader>r :syntax sync fromstart<CR>:mode<CR>
 
 " Maps for smooth scrolling
-nnoremap <silent> <C-u> :call smooth_scroll#up  (&scroll,   18, 2)<CR>
-nnoremap <silent> <C-d> :call smooth_scroll#down(&scroll,   18, 2)<CR>
+nnoremap <silent> <C-u> :call smooth_scroll#up  (&scroll,   18, 1)<CR>
+nnoremap <silent> <C-d> :call smooth_scroll#down(&scroll,   18, 1)<CR>
 
-nnoremap <silent> <C-b> :call smooth_scroll#up  (&scroll*2, 20, 4)<CR>
-nnoremap <silent> <C-f> :call smooth_scroll#down(&scroll*2, 20, 4)<CR>
+nnoremap <silent> <C-b> :call smooth_scroll#up  (&scroll*2, 20, 2)<CR>
+nnoremap <silent> <C-f> :call smooth_scroll#down(&scroll*2, 20, 2)<CR>
 
 " Maps for moving throught document when using 1 hand
 "
@@ -352,69 +305,51 @@ nnoremap <silent> <Right> :call smooth_scroll#down(&scroll,   18, 2)<CR>
 nnoremap <silent> <Up> <C-y>k
 nnoremap <silent> <Down> <C-e>j
 
-" Mappings using CoCList:
-" Show all diagnostics.
-nnoremap <silent> <Leader>ca  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent> <Leader>ce  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent> <Leader>cc  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent> <Leader>co  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent> <Leader>cs  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent> <Leader>cj  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent> <Leader>ck  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent> <Leader>cp  :<C-u>CocListResume<CR>
+" use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
+set cscopetag
 
-" Use tab for trigger completion with characters ahead and navigate.
-"
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" check cscope for definition of a symbol before checking ctags: set to 1
+" if you want the reverse search order.
+set csto=0
 
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+" add any cscope database in current directory
+if filereadable("cscope.out")
+	cs add cscope.out  
+	" else add the database pointed to by environment variable 
+elseif $CSCOPE_DB != ""
+	cs add $CSCOPE_DB
+endif
 
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" show msg when any other cscope db added
+set cscopeverbose  
 
-" Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+" s symbol: find all references to the token under cursor
+" g global: find global definition(s) of the token under cursor
+" c calls:  find all calls to the function name under cursor
+" t text:   find all instances of the text under cursor
+" e egrep:  egrep search for the word under cursor
+" f file:   open the filename under cursor
+" i includes: find files that include the filename under cursor
+" d called: find functions that function under cursor calls
+nmap <C-Space>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-Space>g :cs find g <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-Space>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-Space>t :cs find t <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-Space>e :cs find e <C-R>=expand("<cword>")<CR><CR>	
+nmap <C-Space>f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
+nmap <C-Space>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+nmap <C-Space>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+function! s:GenTagsAndCscope()
+	!ctags -R
+	!cscope -R -b 
+endfunction
+command! GenTagsAndCscope call s:GenTagsAndCscope()
 
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
+nnoremap <silent> <Leader>g :GenTagsAndCscope<CR>:cs add cscope.out<CR>
 
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
 
-" Applying codeAction to the selected region.
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
-omap ac <Plug>(coc-classobj-a)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)

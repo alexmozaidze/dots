@@ -24,6 +24,13 @@ alias bulk-rename="qmv -f do"
 # Alias for showing time
 alias dtime="date +\"%R:%S\""
 
+alias p="mplayer"
+alias i="sxiv"
+alias e="nvim"
+
+# Never gonna give you up!~
+alias rr="rickroll"
+
 # Aliases for openrc-init
 #alias reboot="sudo openrc-shutdown -r now"
 #alias halt="sudo openrc-shutdown -H now"

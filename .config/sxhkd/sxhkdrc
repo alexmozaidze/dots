@@ -7,8 +7,12 @@ ctrl + shift + i
 	firefox
 
 # Launch terminal
+ctrl + shift + Return
+	st
+
+# Launch terminal with Tmux
 ctrl + shift + t
-	st -e tmux -f ~/.config/tmux/tmux.conf
+	tmux-session-manager
 
 # Launch dmenu to run any application
 ctrl + shift + d
@@ -21,10 +25,6 @@ ctrl + shift + s
 # Open Zathura
 ctrl + shift + z
 	zathura
-
-# Open GIMP
-ctrl + shift + g
-	gimp
 
 # Choose emoji using dmenu and copy it in clipboard
 ctrl + shift + u
