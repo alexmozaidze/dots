@@ -2,7 +2,16 @@
 " That specify each plugin you want to install
 call plug#begin()
 
-" Fugitive
+" Tags manager
+Plug 'junegunn/goyo.vim'
+
+" Tags manager
+Plug 'svermeulen/vim-gutentags'
+
+" Delete commands are not saving the deleted text anymore.vim
+Plug 'svermeulen/vim-cutlass'
+
+" Git commands in Vim
 Plug 'tpope/vim-fugitive'
 
 " Easy aligning
@@ -24,12 +33,69 @@ Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 
 " Smooth scroll plugin
-Plug 'terryma/vim-smooth-scroll'
+Plug 'psliwka/vim-smoothie'
 
 " Syntax checker
 Plug 'vim-syntastic/syntastic'
 
 call plug#end()
+
+
+" ---------------------------
+" Smooth scroll configuration
+" ---------------------------
+
+
+let g:smoothie_update_interval=10
+
+
+" -----------------------
+" Gutentags configuration
+" -----------------------
+
+
+function! s:goyo_enter()
+	if executable('tmux') && strlen($TMUX)
+		silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+	endif
+	set showmode
+	set showcmd
+	set nocul
+	norm zz
+	Goyo 60%x100%
+	hi NonText gui=NONE guibg=NONE guifg=#3B4048
+endfunction
+
+function! s:goyo_leave()
+	if executable('tmux') && strlen($TMUX)
+		silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+	endif
+	set noshowmode
+	set cul
+	"bufdo set number relativenumber
+	norm zz
+	" Remove background color
+	hi Normal guibg=NONE ctermbg=NONE
+	" Remove tildas from the end of buffer
+	hi EndOfBuffer gui=NONE guibg=default guifg=#282C34
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+let g:goyo_width="90%"
+let g:goyo_height="100%"
+let g:goyo_linenr="0"
+
+
+" -----------------------
+" Gutentags configuration
+" -----------------------
+
+
+" Make cscope git to work
+let g:gutentags_modules=[ "cscope" ]
+let g:gutentags_auto_add_gtags_cscope=1
 
 
 " -----------------------
@@ -129,8 +195,11 @@ set background=dark
 " Automaticaly wrap text that extends beyond the screen length
 set wrap
 
+" Wrapmargin
+set wrapmargin=1
+
 " Formatting options
-set formatoptions=nr1
+set formatoptions=tcrwnl1jp
 
 " Configuration for tab indentation
 set tabstop=4
@@ -138,8 +207,11 @@ set shiftwidth=4
 set noexpandtab
 set shiftround
 
+" Set scroll variable to half of the screen size
+set scroll=0
+
 " Minimal number of screen lines to keep above and below the cursor
-set scrolloff=16
+set scrolloff=9999
 
 " Ignore letters case
 set ignorecase
@@ -161,7 +233,7 @@ set display=lastline
 set shortmess=aWIc
 
 " Use + register (X clipboard) for all copy/cut commands
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " Hide unmodified buffer if user leaves it
 set hidden
@@ -194,8 +266,16 @@ set laststatus=2
 
 " Change colorscheme
 colo onedark
-" Don't change background (enables transparency)
+" Remove background color
 hi Normal guibg=NONE ctermbg=NONE
+" Remove tildas from the end of buffer
+hi EndOfBuffer cterm=NONE ctermbg=black ctermfg=black gui=NONE guibg=default guifg=#282C34
+
+" Hard line breaks
+set textwidth=100
+
+" Highlight the maximum length of line
+set colorcolumn=100
 
 " Show line numbers
 set number
@@ -245,18 +325,15 @@ nmap <silent> <Space><Space> <Nop>
 " Remap U to redo the changes
 nmap <silent> U <C-r>
 
-" Remap X to delete a line
-nmap <silent> X dd
+" Remap x key to act as native dd (default behaviour changed by cutlass plugin)
+nnoremap x d
+xnoremap x d
+
+nnoremap xx dd
+nnoremap X D
 
 " Remap Y to yank till the end of the line
 nmap <silent> Y y$
-
-" Remap dl to delete a character after the cursor
-nmap <silent> dl lxh
-
-" Center the view after moving to next search pattern
-nmap <silent> n nzz
-nmap <silent> N Nzz
 
 " Center the view after in jump list
 nmap <silent> <C-o> <C-o>zz
@@ -288,40 +365,12 @@ nnoremap <silent> <Leader>f :filetype detect<CR>
 " Map for fixing syntax highlight and redrawing the screen
 nnoremap <silent> <Leader>r :syntax sync fromstart<CR>:mode<CR>
 
-" Maps for smooth scrolling
-nnoremap <silent> <C-u> :call smooth_scroll#up  (&scroll,   18, 1)<CR>
-nnoremap <silent> <C-d> :call smooth_scroll#down(&scroll,   18, 1)<CR>
-
-nnoremap <silent> <C-b> :call smooth_scroll#up  (&scroll*2, 20, 2)<CR>
-nnoremap <silent> <C-f> :call smooth_scroll#down(&scroll*2, 20, 2)<CR>
-
-" Maps for moving throught document when using 1 hand
-"
-" NOTE:
-" Those mappings are made so that I can scratch my back and view the codebase
-" at the same time
-nnoremap <silent> <Left> :call smooth_scroll#up   (&scroll,   18, 2)<CR>
-nnoremap <silent> <Right> :call smooth_scroll#down(&scroll,   18, 2)<CR>
-nnoremap <silent> <Up> <C-y>k
-nnoremap <silent> <Down> <C-e>j
-
 " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
 set cscopetag
 
 " check cscope for definition of a symbol before checking ctags: set to 1
 " if you want the reverse search order.
 set csto=0
-
-" add any cscope database in current directory
-if filereadable("cscope.out")
-	cs add cscope.out  
-	" else add the database pointed to by environment variable 
-elseif $CSCOPE_DB != ""
-	cs add $CSCOPE_DB
-endif
-
-" show msg when any other cscope db added
-set cscopeverbose  
 
 " s symbol: find all references to the token under cursor
 " g global: find global definition(s) of the token under cursor
@@ -340,16 +389,11 @@ nmap <C-Space>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
 nmap <C-Space>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
 nmap <C-Space>d :cs find d <C-R>=expand("<cword>")<CR><CR>
 
-function! s:GenTagsAndCscope()
-	!ctags -R
-	!cscope -R -b 
-endfunction
-command! GenTagsAndCscope call s:GenTagsAndCscope()
-
-nnoremap <silent> <Leader>g :GenTagsAndCscope<CR>:cs add cscope.out<CR>
-
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" Goyo mapping
+nnoremap <Leader>c :Goyo<CR>

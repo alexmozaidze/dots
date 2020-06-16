@@ -26,6 +26,9 @@ ctrl + shift + s
 ctrl + shift + z
 	zathura
 
+ctrl + shift + b
+	timeshift-gtk	
+
 # Choose emoji using dmenu and copy it in clipboard
 ctrl + shift + u
 	emoji

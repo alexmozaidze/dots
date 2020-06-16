@@ -4,16 +4,15 @@
 LS_DEFAULT_OPTIONS="--group-directories-first --color=always"
 GREP_DEFAULT_OPTIONS="--color=always"
 
-# Nvim aliase
+# Nvim and Vim aliases
 alias nvim="nvim -n"
+alias erc="nvim ~/.config/nvim/init.vim"
 
 # Aliases for ls and exa commands
 alias ls="ls ${LS_DEFAULT_OPTIONS}"
 alias la="ls -A ${LS_DEFAULT_OPTIONS}"
 alias ll="ls -Alh ${LS_DEFAULT_OPTIONS}"
 alias exa="exa ${EXA_DEFAULT_OPTIONS}"
-
-alias tmux="tmux -f ~/.config/tmux/tmux.conf"
 
 # Alias for "grep" command
 alias grep="grep $GREP_DEFAULT_OPTIONS"
@@ -27,9 +26,6 @@ alias dtime="date +\"%R:%S\""
 alias p="mplayer"
 alias i="sxiv"
 alias e="nvim"
-
-# Never gonna give you up!~
-alias rr="rickroll"
 
 # Aliases for openrc-init
 #alias reboot="sudo openrc-shutdown -r now"

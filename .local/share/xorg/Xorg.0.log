@@ -1,0 +1,586 @@
+[   155.518] 
+X.Org X Server 1.20.8
+X Protocol Version 11, Revision 0
+[   155.518] Build Operating System: Linux 4.19.0-8-amd64 i686 Debian
+[   155.518] Current Operating System: Linux debian 5.6.0-2-686-pae #1 SMP Debian 5.6.14-1 (2020-05-23) i686
+[   155.518] Kernel command line: BOOT_IMAGE=/boot/vmlinuz-5.6.0-2-686-pae root=UUID=005c6198-da51-43cf-ac87-31d43e736b9f ro quiet
+[   155.518] Build Date: 31 March 2020  10:14:40AM
+[   155.518] xorg-server 2:1.20.8-2 (https://www.debian.org/support) 
+[   155.518] Current version of pixman: 0.36.0
+[   155.518] 	Before reporting problems, check http://wiki.x.org
+	to make sure that you have the latest version.
+[   155.518] Markers: (--) probed, (**) from config file, (==) default setting,
+	(++) from command line, (!!) notice, (II) informational,
+	(WW) warning, (EE) error, (NI) not implemented, (??) unknown.
+[   155.518] (==) Log file: "/home/alex/.local/share/xorg/Xorg.0.log", Time: Tue Jun 16 09:52:28 2020
+[   155.668] (==) Using system config directory "/usr/share/X11/xorg.conf.d"
+[   155.913] (==) No Layout section.  Using the first Screen section.
+[   155.913] (==) No screen section available. Using defaults.
+[   155.913] (**) |-->Screen "Default Screen Section" (0)
+[   155.913] (**) |   |-->Monitor "<default monitor>"
+[   155.946] (==) No monitor specified for screen "Default Screen Section".
+	Using a default monitor configuration.
+[   155.946] (==) Automatically adding devices
+[   155.946] (==) Automatically enabling devices
+[   155.946] (==) Automatically adding GPU devices
+[   155.946] (==) Max clients allowed: 256, resource mask: 0x1fffff
+[   156.113] (WW) The directory "/usr/share/fonts/X11/cyrillic" does not exist.
+[   156.113] 	Entry deleted from font path.
+[   156.280] (==) FontPath set to:
+	/usr/share/fonts/X11/misc,
+	/usr/share/fonts/X11/100dpi/:unscaled,
+	/usr/share/fonts/X11/75dpi/:unscaled,
+	/usr/share/fonts/X11/Type1,
+	/usr/share/fonts/X11/100dpi,
+	/usr/share/fonts/X11/75dpi,
+	built-ins
+[   156.280] (==) ModulePath set to "/usr/lib/xorg/modules"
+[   156.280] (II) The server relies on udev to provide the list of input devices.
+	If no devices become available, reconfigure udev or disable AutoAddDevices.
+[   156.280] (II) Loader magic: 0x730740
+[   156.280] (II) Module ABI versions:
+[   156.280] 	X.Org ANSI C Emulation: 0.4
+[   156.280] 	X.Org Video Driver: 24.1
+[   156.280] 	X.Org XInput driver : 24.1
+[   156.280] 	X.Org Server Extension : 10.0
+[   156.281] (++) using VT number 1
+
+[   156.283] (II) systemd-logind: took control of session /org/freedesktop/login1/session/_31
+[   156.284] (II) xfree86: Adding drm device (/dev/dri/card0)
+[   156.285] (II) systemd-logind: got fd for /dev/dri/card0 226:0 fd 11 paused 0
+[   156.289] (--) PCI:*(1@0:0:0) 10de:0392:1043:822e rev 161, Mem @ 0xfa000000/16777216, 0xc0000000/536870912, 0xfb000000/16777216, I/O @ 0x0000bf00/128, BIOS @ 0x????????/131072
+[   156.303] (II) LoadModule: "glx"
+[   156.331] (II) Loading /usr/lib/xorg/modules/extensions/libglx.so
+[   157.086] (II) Module glx: vendor="X.Org Foundation"
+[   157.086] 	compiled for 1.20.8, module version = 1.0.0
+[   157.086] 	ABI class: X.Org Server Extension, version 10.0
+[   157.218] (==) Matched nouveau as autoconfigured driver 0
+[   157.218] (==) Matched nv as autoconfigured driver 1
+[   157.218] (==) Matched modesetting as autoconfigured driver 2
+[   157.218] (==) Matched fbdev as autoconfigured driver 3
+[   157.218] (==) Matched vesa as autoconfigured driver 4
+[   157.218] (==) Assigned the driver to the xf86ConfigLayout
+[   157.218] (II) LoadModule: "nouveau"
+[   157.218] (II) Loading /usr/lib/xorg/modules/drivers/nouveau_drv.so
+[   157.292] (II) Module nouveau: vendor="X.Org Foundation"
+[   157.292] 	compiled for 1.20.3, module version = 1.0.16
+[   157.292] 	Module class: X.Org Video Driver
+[   157.293] 	ABI class: X.Org Video Driver, version 24.0
+[   157.293] (II) LoadModule: "nv"
+[   157.293] (WW) Warning, couldn't open module nv
+[   157.293] (EE) Failed to load module "nv" (module does not exist, 0)
+[   157.293] (II) LoadModule: "modesetting"
+[   157.293] (II) Loading /usr/lib/xorg/modules/drivers/modesetting_drv.so
+[   157.399] (II) Module modesetting: vendor="X.Org Foundation"
+[   157.399] 	compiled for 1.20.8, module version = 1.20.8
+[   157.399] 	Module class: X.Org Video Driver
+[   157.399] 	ABI class: X.Org Video Driver, version 24.1
+[   157.400] (II) LoadModule: "fbdev"
+[   157.400] (II) Loading /usr/lib/xorg/modules/drivers/fbdev_drv.so
+[   157.432] (II) Module fbdev: vendor="X.Org Foundation"
+[   157.432] 	compiled for 1.20.0, module version = 0.5.0
+[   157.432] 	Module class: X.Org Video Driver
+[   157.432] 	ABI class: X.Org Video Driver, version 24.0
+[   157.432] (II) LoadModule: "vesa"
+[   157.432] (II) Loading /usr/lib/xorg/modules/drivers/vesa_drv.so
+[   157.457] (II) Module vesa: vendor="X.Org Foundation"
+[   157.457] 	compiled for 1.20.4, module version = 2.4.0
+[   157.457] 	Module class: X.Org Video Driver
+[   157.457] 	ABI class: X.Org Video Driver, version 24.0
+[   157.457] (II) NOUVEAU driver Date:   Mon Jan 28 23:25:58 2019 -0500
+[   157.457] (II) NOUVEAU driver for NVIDIA chipset families :
+[   157.457] 	RIVA TNT            (NV04)
+[   157.457] 	RIVA TNT2           (NV05)
+[   157.457] 	GeForce 256         (NV10)
+[   157.457] 	GeForce 2           (NV11, NV15)
+[   157.457] 	GeForce 4MX         (NV17, NV18)
+[   157.457] 	GeForce 3           (NV20)
+[   157.457] 	GeForce 4Ti         (NV25, NV28)
+[   157.457] 	GeForce FX          (NV3x)
+[   157.457] 	GeForce 6           (NV4x)
+[   157.457] 	GeForce 7           (G7x)
+[   157.457] 	GeForce 8           (G8x)
+[   157.457] 	GeForce 9           (G9x)
+[   157.457] 	GeForce GTX 2xx/3xx (GT2xx)
+[   157.457] 	GeForce GTX 4xx/5xx (GFxxx)
+[   157.457] 	GeForce GTX 6xx/7xx (GKxxx)
+[   157.458] 	GeForce GTX 9xx     (GMxxx)
+[   157.458] 	GeForce GTX 10xx    (GPxxx)
+[   157.458] (II) modesetting: Driver for Modesetting Kernel Drivers: kms
+[   157.458] (II) FBDEV: driver for framebuffer: fbdev
+[   157.458] (II) VESA: driver for VESA chipsets: vesa
+[   157.458] xf86EnableIOPorts: failed to set IOPL for I/O (Operation not permitted)
+[   157.458] (II) [drm] nouveau interface version: 1.3.1
+[   157.458] (WW) Falling back to old probe method for modesetting
+[   157.458] (WW) Falling back to old probe method for fbdev
+[   157.458] (II) Loading sub module "fbdevhw"
+[   157.458] (II) LoadModule: "fbdevhw"
+[   157.458] (II) Loading /usr/lib/xorg/modules/libfbdevhw.so
+[   157.477] (II) Module fbdevhw: vendor="X.Org Foundation"
+[   157.477] 	compiled for 1.20.8, module version = 0.0.2
+[   157.477] 	ABI class: X.Org Video Driver, version 24.1
+[   157.477] (EE) open /dev/fb0: Permission denied
+[   157.477] (WW) VGA arbiter: cannot open kernel arbiter, no multi-card support
+[   157.477] (II) Loading sub module "dri2"
+[   157.477] (II) LoadModule: "dri2"
+[   157.477] (II) Module "dri2" already built-in
+[   157.477] (--) NOUVEAU(0): Chipset: "NVIDIA NV4B"
+[   157.477] (II) NOUVEAU(0): Creating default Display subsection in Screen section
+	"Default Screen Section" for depth/fbbpp 24/32
+[   157.477] (==) NOUVEAU(0): Depth 24, (--) framebuffer bpp 32
+[   157.477] (==) NOUVEAU(0): RGB weight 888
+[   157.477] (==) NOUVEAU(0): Default visual is TrueColor
+[   157.478] (==) NOUVEAU(0): Using HW cursor
+[   157.478] (==) NOUVEAU(0): Allowed maximum DRI level 2.
+[   157.478] (==) NOUVEAU(0): GLX sync to VBlank enabled.
+[   157.478] (==) NOUVEAU(0): Page flipping enabled
+[   157.478] (==) NOUVEAU(0): Swap limit set to 1 [Max allowed 2]
+[   157.478] (==) NOUVEAU(0): Page flipping synced to vblank by kernel.
+[   157.478] (II) NOUVEAU(0): Initializing outputs ...
+[   157.507] (II) NOUVEAU(0): Output VGA-1 has no monitor section
+[   157.547] (II) NOUVEAU(0): Output DVI-I-1 has no monitor section
+[   157.587] (II) NOUVEAU(0): Output TV-1 has no monitor section
+[   157.587] (II) NOUVEAU(0): 3 crtcs needed for screen.
+[   157.587] (II) NOUVEAU(0): Allocated crtc nr. 0 to this screen.
+[   157.587] (II) NOUVEAU(0): Allocated crtc nr. 1 to this screen.
+[   157.617] (II) NOUVEAU(0): EDID for output VGA-1
+[   157.617] (II) NOUVEAU(0): Manufacturer: ACI  Model: 17d5  Serial#: 16843009
+[   157.617] (II) NOUVEAU(0): Year: 2007  Week: 3
+[   157.617] (II) NOUVEAU(0): EDID Version: 1.3
+[   157.617] (II) NOUVEAU(0): Analog Display Input,  Input Voltage Level: 0.700/0.300 V
+[   157.617] (II) NOUVEAU(0): Signal levels configurable
+[   157.617] (II) NOUVEAU(0): Sync:  Separate  Composite
+[   157.617] (II) NOUVEAU(0): Max Image Size [cm]: horiz.: 34  vert.: 27
+[   157.617] (II) NOUVEAU(0): Gamma: 2.20
+[   157.617] (II) NOUVEAU(0): DPMS capabilities: Off; RGB/Color Display
+[   157.617] (II) NOUVEAU(0): Default color space is primary color space
+[   157.617] (II) NOUVEAU(0): First detailed timing is preferred mode
+[   157.617] (II) NOUVEAU(0): GTF timings supported
+[   157.617] (II) NOUVEAU(0): redX: 0.647 redY: 0.332   greenX: 0.284 greenY: 0.608
+[   157.618] (II) NOUVEAU(0): blueX: 0.149 blueY: 0.067   whiteX: 0.313 whiteY: 0.329
+[   157.618] (II) NOUVEAU(0): Supported established timings:
+[   157.618] (II) NOUVEAU(0): 720x400@70Hz
+[   157.618] (II) NOUVEAU(0): 640x480@60Hz
+[   157.618] (II) NOUVEAU(0): 640x480@67Hz
+[   157.618] (II) NOUVEAU(0): 640x480@72Hz
+[   157.618] (II) NOUVEAU(0): 640x480@75Hz
+[   157.618] (II) NOUVEAU(0): 800x600@56Hz
+[   157.618] (II) NOUVEAU(0): 800x600@60Hz
+[   157.618] (II) NOUVEAU(0): 800x600@72Hz
+[   157.618] (II) NOUVEAU(0): 800x600@75Hz
+[   157.618] (II) NOUVEAU(0): 832x624@75Hz
+[   157.618] (II) NOUVEAU(0): 1024x768@60Hz
+[   157.618] (II) NOUVEAU(0): 1024x768@70Hz
+[   157.618] (II) NOUVEAU(0): 1024x768@75Hz
+[   157.618] (II) NOUVEAU(0): 1280x1024@75Hz
+[   157.618] (II) NOUVEAU(0): Manufacturer's mask: 0
+[   157.618] (II) NOUVEAU(0): Supported standard timings:
+[   157.618] (II) NOUVEAU(0): #0: hsize: 1280  vsize 1024  refresh: 60  vid: 32897
+[   157.618] (II) NOUVEAU(0): #1: hsize: 1280  vsize 1024  refresh: 75  vid: 36737
+[   157.618] (II) NOUVEAU(0): Supported detailed timing:
+[   157.618] (II) NOUVEAU(0): clock: 108.0 MHz   Image Size:  338 x 270 mm
+[   157.618] (II) NOUVEAU(0): h_active: 1280  h_sync: 1328  h_sync_end 1440 h_blank_end 1688 h_border: 0
+[   157.618] (II) NOUVEAU(0): v_active: 1024  v_sync: 1025  v_sync_end 1028 v_blanking: 1066 v_border: 0
+[   157.618] (II) NOUVEAU(0): Ranges: V min: 55 V max: 75 Hz, H min: 24 H max: 83 kHz, PixClock max 145 MHz
+[   157.618] (II) NOUVEAU(0):  2nd GTF parameters: f: 64 kHz c: 40 m: 600 k 128 j 20
+[   157.618] (II) NOUVEAU(0): Serial No: 71L9010595
+[   157.618] (II) NOUVEAU(0): Monitor name: ASUS MB17SE
+[   157.618] (II) NOUVEAU(0): EDID (in hex):
+[   157.618] (II) NOUVEAU(0): 	00ffffffffffff000469d51701010101
+[   157.618] (II) NOUVEAU(0): 	031101031c221b782fcf55a555489b26
+[   157.618] (II) NOUVEAU(0): 	115054bfef008180818f010101010101
+[   157.618] (II) NOUVEAU(0): 	010101010101302a009851002a403070
+[   157.618] (II) NOUVEAU(0): 	1300520e1100001e000000fd00374b18
+[   157.618] (II) NOUVEAU(0): 	530e0200205058028028000000ff0037
+[   157.618] (II) NOUVEAU(0): 	314c393031303539350a2020000000fc
+[   157.618] (II) NOUVEAU(0): 	0041535553204d42313753450a200014
+[   157.618] (II) NOUVEAU(0): Printing probed modes for output VGA-1
+[   157.618] (II) NOUVEAU(0): Modeline "1280x1024"x60.0  108.00  1280 1328 1440 1688  1024 1025 1028 1066 +hsync +vsync (64.0 kHz eP)
+[   157.618] (II) NOUVEAU(0): Modeline "1280x1024"x75.0  135.00  1280 1296 1440 1688  1024 1025 1028 1066 +hsync +vsync (80.0 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "1280x960"x60.0  108.00  1280 1376 1488 1800  960 961 964 1000 +hsync +vsync (60.0 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "1280x800"x74.9  106.50  1280 1360 1488 1696  800 803 809 838 -hsync +vsync (62.8 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "1280x800"x59.8   83.50  1280 1352 1480 1680  800 803 809 831 -hsync +vsync (49.7 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "1152x864"x75.0  108.00  1152 1216 1344 1600  864 865 868 900 +hsync +vsync (67.5 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "1280x768"x74.9  102.25  1280 1360 1488 1696  768 771 778 805 -hsync +vsync (60.3 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "1280x768"x59.9   79.50  1280 1344 1472 1664  768 771 778 798 -hsync +vsync (47.8 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "1280x720"x60.0   74.25  1280 1390 1430 1650  720 725 730 750 +hsync +vsync (45.0 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "1024x768"x75.0   78.75  1024 1040 1136 1312  768 769 772 800 +hsync +vsync (60.0 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "1024x768"x70.1   75.00  1024 1048 1184 1328  768 771 777 806 -hsync -vsync (56.5 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "1024x768"x60.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "1024x576"x60.0   46.97  1024 1064 1168 1312  576 577 580 597 -hsync +vsync (35.8 kHz)
+[   157.618] (II) NOUVEAU(0): Modeline "832x624"x74.6   57.28  832 864 928 1152  624 625 628 667 -hsync -vsync (49.7 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "800x600"x72.2   50.00  800 856 976 1040  600 637 643 666 +hsync +vsync (48.1 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "800x600"x75.0   49.50  800 816 896 1056  600 601 604 625 +hsync +vsync (46.9 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "800x600"x60.3   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "800x600"x56.2   36.00  800 824 896 1024  600 601 603 625 +hsync +vsync (35.2 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "848x480"x60.0   33.75  848 864 976 1088  480 486 494 517 +hsync +vsync (31.0 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "640x480"x75.0   31.50  640 656 720 840  480 481 484 500 -hsync -vsync (37.5 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "640x480"x72.8   31.50  640 664 704 832  480 489 492 520 -hsync -vsync (37.9 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "640x480"x66.7   30.24  640 704 768 864  480 483 486 525 -hsync -vsync (35.0 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "640x480"x59.9   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[   157.618] (II) NOUVEAU(0): Modeline "720x400"x70.1   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+[   157.659] (II) NOUVEAU(0): EDID for output DVI-I-1
+[   157.699] (II) NOUVEAU(0): EDID for output TV-1
+[   157.699] (II) NOUVEAU(0): Output VGA-1 connected
+[   157.699] (II) NOUVEAU(0): Output DVI-I-1 disconnected
+[   157.699] (II) NOUVEAU(0): Output TV-1 disconnected
+[   157.699] (II) NOUVEAU(0): Using exact sizes for initial modes
+[   157.699] (II) NOUVEAU(0): Output VGA-1 using initial mode 1280x1024 +0+0
+[   157.699] (==) NOUVEAU(0): Using gamma correction (1.0, 1.0, 1.0)
+[   157.699] (II) NOUVEAU(0): Virtual size is 1280x1024 (pitch 0)
+[   157.699] (**) NOUVEAU(0):  Driver mode "1280x1024": 108.0 MHz (scaled from 0.0 MHz), 64.0 kHz, 60.0 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "1280x1024"x60.0  108.00  1280 1328 1440 1688  1024 1025 1028 1066 +hsync +vsync (64.0 kHz eP)
+[   157.699] (**) NOUVEAU(0):  Driver mode "1280x1024": 135.0 MHz (scaled from 0.0 MHz), 80.0 kHz, 75.0 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "1280x1024"x75.0  135.00  1280 1296 1440 1688  1024 1025 1028 1066 +hsync +vsync (80.0 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "1280x960": 108.0 MHz (scaled from 0.0 MHz), 60.0 kHz, 60.0 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "1280x960"x60.0  108.00  1280 1376 1488 1800  960 961 964 1000 +hsync +vsync (60.0 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "1280x800": 106.5 MHz (scaled from 0.0 MHz), 62.8 kHz, 74.9 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "1280x800"x74.9  106.50  1280 1360 1488 1696  800 803 809 838 -hsync +vsync (62.8 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "1280x800": 83.5 MHz (scaled from 0.0 MHz), 49.7 kHz, 59.8 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "1280x800"x59.8   83.50  1280 1352 1480 1680  800 803 809 831 -hsync +vsync (49.7 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "1152x864": 108.0 MHz (scaled from 0.0 MHz), 67.5 kHz, 75.0 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "1152x864"x75.0  108.00  1152 1216 1344 1600  864 865 868 900 +hsync +vsync (67.5 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "1280x768": 102.2 MHz (scaled from 0.0 MHz), 60.3 kHz, 74.9 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "1280x768"x74.9  102.25  1280 1360 1488 1696  768 771 778 805 -hsync +vsync (60.3 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "1280x768": 79.5 MHz (scaled from 0.0 MHz), 47.8 kHz, 59.9 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "1280x768"x59.9   79.50  1280 1344 1472 1664  768 771 778 798 -hsync +vsync (47.8 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "1280x720": 74.2 MHz (scaled from 0.0 MHz), 45.0 kHz, 60.0 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "1280x720"x60.0   74.25  1280 1390 1430 1650  720 725 730 750 +hsync +vsync (45.0 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "1024x768": 78.8 MHz (scaled from 0.0 MHz), 60.0 kHz, 75.0 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "1024x768"x75.0   78.75  1024 1040 1136 1312  768 769 772 800 +hsync +vsync (60.0 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "1024x768": 75.0 MHz (scaled from 0.0 MHz), 56.5 kHz, 70.1 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "1024x768"x70.1   75.00  1024 1048 1184 1328  768 771 777 806 -hsync -vsync (56.5 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "1024x768": 65.0 MHz (scaled from 0.0 MHz), 48.4 kHz, 60.0 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "1024x768"x60.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[   157.699] (**) NOUVEAU(0):  Mode "1024x576": 47.0 MHz (scaled from 0.0 MHz), 35.8 kHz, 60.0 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "1024x576"x60.0   46.97  1024 1064 1168 1312  576 577 580 597 -hsync +vsync (35.8 kHz)
+[   157.699] (**) NOUVEAU(0):  Driver mode "832x624": 57.3 MHz (scaled from 0.0 MHz), 49.7 kHz, 74.6 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "832x624"x74.6   57.28  832 864 928 1152  624 625 628 667 -hsync -vsync (49.7 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "800x600": 50.0 MHz (scaled from 0.0 MHz), 48.1 kHz, 72.2 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "800x600"x72.2   50.00  800 856 976 1040  600 637 643 666 +hsync +vsync (48.1 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "800x600": 49.5 MHz (scaled from 0.0 MHz), 46.9 kHz, 75.0 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "800x600"x75.0   49.50  800 816 896 1056  600 601 604 625 +hsync +vsync (46.9 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "800x600": 40.0 MHz (scaled from 0.0 MHz), 37.9 kHz, 60.3 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "800x600"x60.3   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "800x600": 36.0 MHz (scaled from 0.0 MHz), 35.2 kHz, 56.2 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "800x600"x56.2   36.00  800 824 896 1024  600 601 603 625 +hsync +vsync (35.2 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "848x480": 33.8 MHz (scaled from 0.0 MHz), 31.0 kHz, 60.0 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "848x480"x60.0   33.75  848 864 976 1088  480 486 494 517 +hsync +vsync (31.0 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "640x480": 31.5 MHz (scaled from 0.0 MHz), 37.5 kHz, 75.0 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "640x480"x75.0   31.50  640 656 720 840  480 481 484 500 -hsync -vsync (37.5 kHz e)
+[   157.699] (**) NOUVEAU(0):  Driver mode "640x480": 31.5 MHz (scaled from 0.0 MHz), 37.9 kHz, 72.8 Hz
+[   157.699] (II) NOUVEAU(0): Modeline "640x480"x72.8   31.50  640 664 704 832  480 489 492 520 -hsync -vsync (37.9 kHz e)
+[   157.700] (**) NOUVEAU(0):  Driver mode "640x480": 30.2 MHz (scaled from 0.0 MHz), 35.0 kHz, 66.7 Hz
+[   157.700] (II) NOUVEAU(0): Modeline "640x480"x66.7   30.24  640 704 768 864  480 483 486 525 -hsync -vsync (35.0 kHz e)
+[   157.700] (**) NOUVEAU(0):  Driver mode "640x480": 25.2 MHz (scaled from 0.0 MHz), 31.5 kHz, 59.9 Hz
+[   157.700] (II) NOUVEAU(0): Modeline "640x480"x59.9   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[   157.700] (**) NOUVEAU(0):  Driver mode "720x400": 28.3 MHz (scaled from 0.0 MHz), 31.5 kHz, 70.1 Hz
+[   157.700] (II) NOUVEAU(0): Modeline "720x400"x70.1   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+[   157.700] (==) NOUVEAU(0): DPI set to (96, 96)
+[   157.700] (II) Loading sub module "fb"
+[   157.700] (II) LoadModule: "fb"
+[   157.700] (II) Loading /usr/lib/xorg/modules/libfb.so
+[   157.729] (II) Module fb: vendor="X.Org Foundation"
+[   157.729] 	compiled for 1.20.8, module version = 1.0.0
+[   157.729] 	ABI class: X.Org ANSI C Emulation, version 0.4
+[   157.729] (II) Loading sub module "shadowfb"
+[   157.729] (II) LoadModule: "shadowfb"
+[   157.729] (II) Loading /usr/lib/xorg/modules/libshadowfb.so
+[   157.753] (II) Module shadowfb: vendor="X.Org Foundation"
+[   157.753] 	compiled for 1.20.8, module version = 1.0.0
+[   157.753] 	ABI class: X.Org ANSI C Emulation, version 0.4
+[   157.753] (II) UnloadModule: "modesetting"
+[   157.753] (II) Unloading modesetting
+[   157.753] (II) UnloadModule: "fbdev"
+[   157.753] (II) Unloading fbdev
+[   157.753] (II) UnloadSubModule: "fbdevhw"
+[   157.753] (II) Unloading fbdevhw
+[   157.753] (II) UnloadModule: "vesa"
+[   157.753] (II) Unloading vesa
+[   157.755] (II) NOUVEAU(0): Channel setup complete.
+[   157.809] (II) NOUVEAU(0): Hardware support for Present enabled
+[   157.809] (II) NOUVEAU(0): [DRI2] Setup complete
+[   157.809] (II) NOUVEAU(0): [DRI2]   DRI driver: nouveau
+[   157.809] (II) NOUVEAU(0): [DRI2]   VDPAU driver: nouveau
+[   157.809] (II) Loading sub module "exa"
+[   157.809] (II) LoadModule: "exa"
+[   157.810] (II) Loading /usr/lib/xorg/modules/libexa.so
+[   157.880] (II) Module exa: vendor="X.Org Foundation"
+[   157.880] 	compiled for 1.20.8, module version = 2.6.0
+[   157.880] 	ABI class: X.Org Video Driver, version 24.1
+[   157.881] (II) EXA(0): Driver allocated offscreen pixmaps
+[   157.881] (II) EXA(0): Driver registered support for the following operations:
+[   157.881] (II)         Solid
+[   157.881] (II)         Copy
+[   157.881] (II)         Composite (RENDER acceleration)
+[   157.881] (II)         UploadToScreen
+[   157.881] (II)         DownloadFromScreen
+[   157.881] (==) NOUVEAU(0): Backing store enabled
+[   157.881] (==) NOUVEAU(0): Silken mouse enabled
+[   157.902] (II) NOUVEAU(0): [XvMC] Associated with NV40 texture adapter.
+[   157.902] (II) NOUVEAU(0): [XvMC] Extension initialized.
+[   157.902] (==) NOUVEAU(0): DPMS enabled
+[   157.903] (II) Initializing extension Generic Event Extension
+[   157.904] (II) Initializing extension SHAPE
+[   157.904] (II) Initializing extension MIT-SHM
+[   157.904] (II) Initializing extension XInputExtension
+[   157.927] (II) Initializing extension XTEST
+[   157.927] (II) Initializing extension BIG-REQUESTS
+[   157.928] (II) Initializing extension SYNC
+[   157.928] (II) Initializing extension XKEYBOARD
+[   157.928] (II) Initializing extension XC-MISC
+[   157.929] (II) Initializing extension SECURITY
+[   157.929] (II) Initializing extension XFIXES
+[   157.929] (II) Initializing extension RENDER
+[   157.930] (II) Initializing extension RANDR
+[   157.930] (II) Initializing extension COMPOSITE
+[   157.931] (II) Initializing extension DAMAGE
+[   157.931] (II) Initializing extension MIT-SCREEN-SAVER
+[   157.932] (II) Initializing extension DOUBLE-BUFFER
+[   157.932] (II) Initializing extension RECORD
+[   157.932] (II) Initializing extension DPMS
+[   157.933] (II) Initializing extension Present
+[   157.933] (II) Initializing extension DRI3
+[   157.933] (II) Initializing extension X-Resource
+[   157.934] (II) Initializing extension XVideo
+[   157.934] (II) Initializing extension XVideo-MotionCompensation
+[   157.934] (II) Initializing extension SELinux
+[   157.934] (II) SELinux: Disabled on system
+[   157.934] (II) Initializing extension GLX
+[   159.374] (II) AIGLX: Loaded and initialized nouveau
+[   159.374] (II) GLX: Initialized DRI2 GL provider for screen 0
+[   159.374] (II) Initializing extension XFree86-VidModeExtension
+[   159.374] (II) Initializing extension XFree86-DGA
+[   159.375] (II) Initializing extension XFree86-DRI
+[   159.375] (II) Initializing extension DRI2
+[   159.378] (II) NOUVEAU(0): NVEnterVT is called.
+[   159.378] (II) NOUVEAU(0): Setting screen physical size to 338 x 270
+[   159.378] resize called 1280 1024
+[   159.832] (II) config/udev: Adding input device Power Button (/dev/input/event1)
+[   159.833] (**) Power Button: Applying InputClass "libinput keyboard catchall"
+[   159.833] (II) LoadModule: "libinput"
+[   159.833] (II) Loading /usr/lib/xorg/modules/input/libinput_drv.so
+[   159.949] (II) Module libinput: vendor="X.Org Foundation"
+[   159.949] 	compiled for 1.20.4, module version = 0.29.0
+[   159.949] 	Module class: X.Org XInput Driver
+[   159.949] 	ABI class: X.Org XInput driver, version 24.1
+[   159.949] (II) Using input driver 'libinput' for 'Power Button'
+[   159.952] (II) systemd-logind: got fd for /dev/input/event1 13:65 fd 21 paused 0
+[   159.952] (**) Power Button: always reports core events
+[   159.952] (**) Option "Device" "/dev/input/event1"
+[   159.952] (**) Option "_source" "server/udev"
+[   159.997] (II) event1  - Power Button: is tagged by udev as: Keyboard
+[   159.997] (II) event1  - Power Button: device is a keyboard
+[   159.997] (II) event1  - Power Button: device removed
+[   159.997] (**) Option "config_info" "udev:/sys/devices/LNXSYSTM:00/LNXPWRBN:00/input/input3/event1"
+[   159.998] (II) XINPUT: Adding extended input device "Power Button" (type: KEYBOARD, id 6)
+[   159.998] (**) Option "xkb_model" "pc104"
+[   159.998] (**) Option "xkb_layout" "us"
+[   159.998] (**) Option "xkb_options" "terminate:ctrl_alt_bksp"
+[   160.041] (II) event1  - Power Button: is tagged by udev as: Keyboard
+[   160.041] (II) event1  - Power Button: device is a keyboard
+[   160.042] (II) config/udev: Adding input device Power Button (/dev/input/event0)
+[   160.042] (**) Power Button: Applying InputClass "libinput keyboard catchall"
+[   160.042] (II) Using input driver 'libinput' for 'Power Button'
+[   160.044] (II) systemd-logind: got fd for /dev/input/event0 13:64 fd 24 paused 0
+[   160.044] (**) Power Button: always reports core events
+[   160.044] (**) Option "Device" "/dev/input/event0"
+[   160.044] (**) Option "_source" "server/udev"
+[   160.046] (II) event0  - Power Button: is tagged by udev as: Keyboard
+[   160.046] (II) event0  - Power Button: device is a keyboard
+[   160.046] (II) event0  - Power Button: device removed
+[   160.046] (**) Option "config_info" "udev:/sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0C:00/input/input2/event0"
+[   160.046] (II) XINPUT: Adding extended input device "Power Button" (type: KEYBOARD, id 7)
+[   160.046] (**) Option "xkb_model" "pc104"
+[   160.046] (**) Option "xkb_layout" "us"
+[   160.046] (**) Option "xkb_options" "terminate:ctrl_alt_bksp"
+[   160.048] (II) event0  - Power Button: is tagged by udev as: Keyboard
+[   160.048] (II) event0  - Power Button: device is a keyboard
+[   160.049] (II) config/udev: Adding input device HDA Intel Front Mic (/dev/input/event10)
+[   160.049] (II) No input driver specified, ignoring this device.
+[   160.049] (II) This device may have been added with another device file.
+[   160.050] (II) config/udev: Adding input device HDA Intel Rear Mic (/dev/input/event11)
+[   160.050] (II) No input driver specified, ignoring this device.
+[   160.050] (II) This device may have been added with another device file.
+[   160.050] (II) config/udev: Adding input device HDA Intel Line (/dev/input/event12)
+[   160.050] (II) No input driver specified, ignoring this device.
+[   160.050] (II) This device may have been added with another device file.
+[   160.051] (II) config/udev: Adding input device HDA Intel Line Out (/dev/input/event13)
+[   160.051] (II) No input driver specified, ignoring this device.
+[   160.051] (II) This device may have been added with another device file.
+[   160.052] (II) config/udev: Adding input device HDA Intel Front Headphone (/dev/input/event14)
+[   160.052] (II) No input driver specified, ignoring this device.
+[   160.052] (II) This device may have been added with another device file.
+[   160.053] (II) config/udev: Adding input device Telink Wireless Receiver Mouse (/dev/input/event2)
+[   160.053] (**) Telink Wireless Receiver Mouse: Applying InputClass "libinput pointer catchall"
+[   160.053] (II) Using input driver 'libinput' for 'Telink Wireless Receiver Mouse'
+[   160.055] (II) systemd-logind: got fd for /dev/input/event2 13:66 fd 25 paused 0
+[   160.055] (**) Telink Wireless Receiver Mouse: always reports core events
+[   160.055] (**) Option "Device" "/dev/input/event2"
+[   160.055] (**) Option "_source" "server/udev"
+[   160.058] (II) event2  - Telink Wireless Receiver Mouse: is tagged by udev as: Mouse
+[   160.058] (II) event2  - Telink Wireless Receiver Mouse: device is a pointer
+[   160.058] (II) event2  - Telink Wireless Receiver Mouse: device removed
+[   160.058] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1d.0/usb2/2-2/2-2:1.0/0003:248A:8366.0001/input/input5/event2"
+[   160.058] (II) XINPUT: Adding extended input device "Telink Wireless Receiver Mouse" (type: MOUSE, id 8)
+[   160.058] (**) Option "AccelerationScheme" "none"
+[   160.058] (**) Telink Wireless Receiver Mouse: (accel) selected scheme none/0
+[   160.058] (**) Telink Wireless Receiver Mouse: (accel) acceleration factor: 2.000
+[   160.059] (**) Telink Wireless Receiver Mouse: (accel) acceleration threshold: 4
+[   160.061] (II) event2  - Telink Wireless Receiver Mouse: is tagged by udev as: Mouse
+[   160.061] (II) event2  - Telink Wireless Receiver Mouse: device is a pointer
+[   160.063] (II) config/udev: Adding input device Telink Wireless Receiver Mouse (/dev/input/mouse0)
+[   160.063] (II) No input driver specified, ignoring this device.
+[   160.063] (II) This device may have been added with another device file.
+[   160.064] (II) config/udev: Adding input device Telink Wireless Receiver Consumer Control (/dev/input/event3)
+[   160.064] (**) Telink Wireless Receiver Consumer Control: Applying InputClass "libinput keyboard catchall"
+[   160.064] (II) Using input driver 'libinput' for 'Telink Wireless Receiver Consumer Control'
+[   160.067] (II) systemd-logind: got fd for /dev/input/event3 13:67 fd 26 paused 0
+[   160.067] (**) Telink Wireless Receiver Consumer Control: always reports core events
+[   160.068] (**) Option "Device" "/dev/input/event3"
+[   160.068] (**) Option "_source" "server/udev"
+[   160.073] (II) event3  - Telink Wireless Receiver Consumer Control: is tagged by udev as: Keyboard
+[   160.073] (II) event3  - Telink Wireless Receiver Consumer Control: device is a keyboard
+[   160.074] (II) event3  - Telink Wireless Receiver Consumer Control: device removed
+[   160.074] (II) libinput: Telink Wireless Receiver Consumer Control: needs a virtual subdevice
+[   160.074] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1d.0/usb2/2-2/2-2:1.0/0003:248A:8366.0001/input/input6/event3"
+[   160.074] (II) XINPUT: Adding extended input device "Telink Wireless Receiver Consumer Control" (type: MOUSE, id 9)
+[   160.074] (**) Option "AccelerationScheme" "none"
+[   160.074] (**) Telink Wireless Receiver Consumer Control: (accel) selected scheme none/0
+[   160.074] (**) Telink Wireless Receiver Consumer Control: (accel) acceleration factor: 2.000
+[   160.074] (**) Telink Wireless Receiver Consumer Control: (accel) acceleration threshold: 4
+[   160.079] (II) event3  - Telink Wireless Receiver Consumer Control: is tagged by udev as: Keyboard
+[   160.079] (II) event3  - Telink Wireless Receiver Consumer Control: device is a keyboard
+[   160.081] (II) config/udev: Adding input device Telink Wireless Receiver System Control (/dev/input/event4)
+[   160.081] (**) Telink Wireless Receiver System Control: Applying InputClass "libinput keyboard catchall"
+[   160.081] (II) Using input driver 'libinput' for 'Telink Wireless Receiver System Control'
+[   160.084] (II) systemd-logind: got fd for /dev/input/event4 13:68 fd 27 paused 0
+[   160.084] (**) Telink Wireless Receiver System Control: always reports core events
+[   160.084] (**) Option "Device" "/dev/input/event4"
+[   160.084] (**) Option "_source" "server/udev"
+[   160.088] (II) event4  - Telink Wireless Receiver System Control: is tagged by udev as: Keyboard
+[   160.088] (II) event4  - Telink Wireless Receiver System Control: device is a keyboard
+[   160.088] (II) event4  - Telink Wireless Receiver System Control: device removed
+[   160.088] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1d.0/usb2/2-2/2-2:1.0/0003:248A:8366.0001/input/input7/event4"
+[   160.089] (II) XINPUT: Adding extended input device "Telink Wireless Receiver System Control" (type: KEYBOARD, id 10)
+[   160.089] (**) Option "xkb_model" "pc104"
+[   160.089] (**) Option "xkb_layout" "us"
+[   160.089] (**) Option "xkb_options" "terminate:ctrl_alt_bksp"
+[   160.093] (II) event4  - Telink Wireless Receiver System Control: is tagged by udev as: Keyboard
+[   160.093] (II) event4  - Telink Wireless Receiver System Control: device is a keyboard
+[   160.096] (II) config/udev: Adding input device dakai PS/2+USB Keyboard (/dev/input/event5)
+[   160.096] (**) dakai PS/2+USB Keyboard: Applying InputClass "libinput keyboard catchall"
+[   160.096] (II) Using input driver 'libinput' for 'dakai PS/2+USB Keyboard'
+[   160.098] (II) systemd-logind: got fd for /dev/input/event5 13:69 fd 28 paused 0
+[   160.098] (**) dakai PS/2+USB Keyboard: always reports core events
+[   160.098] (**) Option "Device" "/dev/input/event5"
+[   160.098] (**) Option "_source" "server/udev"
+[   160.103] (II) event5  - dakai PS/2+USB Keyboard: is tagged by udev as: Keyboard
+[   160.104] (II) event5  - dakai PS/2+USB Keyboard: device is a keyboard
+[   160.104] (II) event5  - dakai PS/2+USB Keyboard: device removed
+[   160.105] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1d.1/usb3/3-1/3-1:1.0/0003:0E6A:02C0.0002/input/input8/event5"
+[   160.105] (II) XINPUT: Adding extended input device "dakai PS/2+USB Keyboard" (type: KEYBOARD, id 11)
+[   160.105] (**) Option "xkb_model" "pc104"
+[   160.105] (**) Option "xkb_layout" "us"
+[   160.105] (**) Option "xkb_options" "terminate:ctrl_alt_bksp"
+[   160.110] (II) event5  - dakai PS/2+USB Keyboard: is tagged by udev as: Keyboard
+[   160.111] (II) event5  - dakai PS/2+USB Keyboard: device is a keyboard
+[   160.114] (II) config/udev: Adding input device dakai PS/2+USB Keyboard System Control (/dev/input/event7)
+[   160.114] (**) dakai PS/2+USB Keyboard System Control: Applying InputClass "libinput keyboard catchall"
+[   160.114] (II) Using input driver 'libinput' for 'dakai PS/2+USB Keyboard System Control'
+[   160.117] (II) systemd-logind: got fd for /dev/input/event7 13:71 fd 29 paused 0
+[   160.117] (**) dakai PS/2+USB Keyboard System Control: always reports core events
+[   160.117] (**) Option "Device" "/dev/input/event7"
+[   160.117] (**) Option "_source" "server/udev"
+[   160.123] (II) event7  - dakai PS/2+USB Keyboard System Control: is tagged by udev as: Keyboard
+[   160.123] (II) event7  - dakai PS/2+USB Keyboard System Control: device is a keyboard
+[   160.123] (II) event7  - dakai PS/2+USB Keyboard System Control: device removed
+[   160.123] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1d.1/usb3/3-1/3-1:1.1/0003:0E6A:02C0.0003/input/input10/event7"
+[   160.123] (II) XINPUT: Adding extended input device "dakai PS/2+USB Keyboard System Control" (type: KEYBOARD, id 12)
+[   160.123] (**) Option "xkb_model" "pc104"
+[   160.123] (**) Option "xkb_layout" "us"
+[   160.123] (**) Option "xkb_options" "terminate:ctrl_alt_bksp"
+[   160.127] (II) event7  - dakai PS/2+USB Keyboard System Control: is tagged by udev as: Keyboard
+[   160.127] (II) event7  - dakai PS/2+USB Keyboard System Control: device is a keyboard
+[   160.129] (II) config/udev: Adding input device dakai PS/2+USB Keyboard (/dev/input/event8)
+[   160.129] (**) dakai PS/2+USB Keyboard: Applying InputClass "libinput keyboard catchall"
+[   160.129] (II) Using input driver 'libinput' for 'dakai PS/2+USB Keyboard'
+[   160.131] (II) systemd-logind: got fd for /dev/input/event8 13:72 fd 30 paused 0
+[   160.131] (**) dakai PS/2+USB Keyboard: always reports core events
+[   160.131] (**) Option "Device" "/dev/input/event8"
+[   160.131] (**) Option "_source" "server/udev"
+[   160.134] (II) event8  - dakai PS/2+USB Keyboard: is tagged by udev as: Keyboard
+[   160.135] (II) event8  - dakai PS/2+USB Keyboard: device is a keyboard
+[   160.135] (II) event8  - dakai PS/2+USB Keyboard: device removed
+[   160.135] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1d.1/usb3/3-1/3-1:1.1/0003:0E6A:02C0.0003/input/input12/event8"
+[   160.135] (II) XINPUT: Adding extended input device "dakai PS/2+USB Keyboard" (type: KEYBOARD, id 13)
+[   160.135] (**) Option "xkb_model" "pc104"
+[   160.135] (**) Option "xkb_layout" "us"
+[   160.135] (**) Option "xkb_options" "terminate:ctrl_alt_bksp"
+[   160.141] (II) event8  - dakai PS/2+USB Keyboard: is tagged by udev as: Keyboard
+[   160.142] (II) event8  - dakai PS/2+USB Keyboard: device is a keyboard
+[   160.145] (II) config/udev: Adding input device dakai PS/2+USB Keyboard Consumer Control (/dev/input/event6)
+[   160.145] (**) dakai PS/2+USB Keyboard Consumer Control: Applying InputClass "libinput keyboard catchall"
+[   160.145] (II) Using input driver 'libinput' for 'dakai PS/2+USB Keyboard Consumer Control'
+[   160.148] (II) systemd-logind: got fd for /dev/input/event6 13:70 fd 31 paused 0
+[   160.148] (**) dakai PS/2+USB Keyboard Consumer Control: always reports core events
+[   160.148] (**) Option "Device" "/dev/input/event6"
+[   160.148] (**) Option "_source" "server/udev"
+[   160.176] (II) event6  - dakai PS/2+USB Keyboard Consumer Control: is tagged by udev as: Keyboard
+[   160.176] (II) event6  - dakai PS/2+USB Keyboard Consumer Control: device is a keyboard
+[   160.177] (II) event6  - dakai PS/2+USB Keyboard Consumer Control: device removed
+[   160.177] (II) libinput: dakai PS/2+USB Keyboard Consumer Control: needs a virtual subdevice
+[   160.177] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1d.1/usb3/3-1/3-1:1.1/0003:0E6A:02C0.0003/input/input9/event6"
+[   160.177] (II) XINPUT: Adding extended input device "dakai PS/2+USB Keyboard Consumer Control" (type: MOUSE, id 14)
+[   160.177] (**) Option "AccelerationScheme" "none"
+[   160.177] (**) dakai PS/2+USB Keyboard Consumer Control: (accel) selected scheme none/0
+[   160.177] (**) dakai PS/2+USB Keyboard Consumer Control: (accel) acceleration factor: 2.000
+[   160.177] (**) dakai PS/2+USB Keyboard Consumer Control: (accel) acceleration threshold: 4
+[   160.183] (II) event6  - dakai PS/2+USB Keyboard Consumer Control: is tagged by udev as: Keyboard
+[   160.183] (II) event6  - dakai PS/2+USB Keyboard Consumer Control: device is a keyboard
+[   160.184] (II) config/udev: Adding input device PC Speaker (/dev/input/event9)
+[   160.184] (II) No input driver specified, ignoring this device.
+[   160.184] (II) This device may have been added with another device file.
+[   160.193] (**) Telink Wireless Receiver Consumer Control: Applying InputClass "libinput keyboard catchall"
+[   160.193] (II) Using input driver 'libinput' for 'Telink Wireless Receiver Consumer Control'
+[   160.193] (II) systemd-logind: returning pre-existing fd for /dev/input/event3 13:67
+[   160.193] (**) Telink Wireless Receiver Consumer Control: always reports core events
+[   160.193] (**) Option "Device" "/dev/input/event3"
+[   160.193] (**) Option "_source" "_driver/libinput"
+[   160.193] (II) libinput: Telink Wireless Receiver Consumer Control: is a virtual subdevice
+[   160.193] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1d.0/usb2/2-2/2-2:1.0/0003:248A:8366.0001/input/input6/event3"
+[   160.193] (II) XINPUT: Adding extended input device "Telink Wireless Receiver Consumer Control" (type: KEYBOARD, id 15)
+[   160.193] (**) Option "xkb_model" "pc104"
+[   160.193] (**) Option "xkb_layout" "us"
+[   160.193] (**) Option "xkb_options" "terminate:ctrl_alt_bksp"
+[   160.193] (**) dakai PS/2+USB Keyboard Consumer Control: Applying InputClass "libinput keyboard catchall"
+[   160.193] (II) Using input driver 'libinput' for 'dakai PS/2+USB Keyboard Consumer Control'
+[   160.193] (II) systemd-logind: returning pre-existing fd for /dev/input/event6 13:70
+[   160.193] (**) dakai PS/2+USB Keyboard Consumer Control: always reports core events
+[   160.193] (**) Option "Device" "/dev/input/event6"
+[   160.193] (**) Option "_source" "_driver/libinput"
+[   160.193] (II) libinput: dakai PS/2+USB Keyboard Consumer Control: is a virtual subdevice
+[   160.193] (**) Option "config_info" "udev:/sys/devices/pci0000:00/0000:00:1d.1/usb3/3-1/3-1:1.1/0003:0E6A:02C0.0003/input/input9/event6"
+[   160.194] (II) XINPUT: Adding extended input device "dakai PS/2+USB Keyboard Consumer Control" (type: KEYBOARD, id 16)
+[   160.194] (**) Option "xkb_model" "pc104"
+[   160.194] (**) Option "xkb_layout" "us"
+[   160.194] (**) Option "xkb_options" "terminate:ctrl_alt_bksp"
+[   161.297] (II) NOUVEAU(0): EDID vendor "ACI", prod id 6101
+[   161.297] (II) NOUVEAU(0): Using EDID range info for horizontal sync
+[   161.297] (II) NOUVEAU(0): Using EDID range info for vertical refresh
+[   161.297] (II) NOUVEAU(0): Printing DDC gathered Modelines:
+[   161.297] (II) NOUVEAU(0): Modeline "1280x1024"x0.0  108.00  1280 1328 1440 1688  1024 1025 1028 1066 +hsync +vsync (64.0 kHz eP)
+[   161.297] (II) NOUVEAU(0): Modeline "800x600"x0.0   40.00  800 840 968 1056  600 601 605 628 +hsync +vsync (37.9 kHz e)
+[   161.297] (II) NOUVEAU(0): Modeline "800x600"x0.0   36.00  800 824 896 1024  600 601 603 625 +hsync +vsync (35.2 kHz e)
+[   161.297] (II) NOUVEAU(0): Modeline "640x480"x0.0   31.50  640 656 720 840  480 481 484 500 -hsync -vsync (37.5 kHz e)
+[   161.297] (II) NOUVEAU(0): Modeline "640x480"x0.0   31.50  640 664 704 832  480 489 492 520 -hsync -vsync (37.9 kHz e)
+[   161.297] (II) NOUVEAU(0): Modeline "640x480"x0.0   30.24  640 704 768 864  480 483 486 525 -hsync -vsync (35.0 kHz e)
+[   161.297] (II) NOUVEAU(0): Modeline "640x480"x0.0   25.18  640 656 752 800  480 490 492 525 -hsync -vsync (31.5 kHz e)
+[   161.297] (II) NOUVEAU(0): Modeline "720x400"x0.0   28.32  720 738 846 900  400 412 414 449 -hsync +vsync (31.5 kHz e)
+[   161.297] (II) NOUVEAU(0): Modeline "1280x1024"x0.0  135.00  1280 1296 1440 1688  1024 1025 1028 1066 +hsync +vsync (80.0 kHz e)
+[   161.297] (II) NOUVEAU(0): Modeline "1024x768"x0.0   78.75  1024 1040 1136 1312  768 769 772 800 +hsync +vsync (60.0 kHz e)
+[   161.297] (II) NOUVEAU(0): Modeline "1024x768"x0.0   75.00  1024 1048 1184 1328  768 771 777 806 -hsync -vsync (56.5 kHz e)
+[   161.297] (II) NOUVEAU(0): Modeline "1024x768"x0.0   65.00  1024 1048 1184 1344  768 771 777 806 -hsync -vsync (48.4 kHz e)
+[   161.297] (II) NOUVEAU(0): Modeline "832x624"x0.0   57.28  832 864 928 1152  624 625 628 667 -hsync -vsync (49.7 kHz e)
+[   161.297] (II) NOUVEAU(0): Modeline "800x600"x0.0   49.50  800 816 896 1056  600 601 604 625 +hsync +vsync (46.9 kHz e)
+[   161.297] (II) NOUVEAU(0): Modeline "800x600"x0.0   50.00  800 856 976 1040  600 637 643 666 +hsync +vsync (48.1 kHz e)

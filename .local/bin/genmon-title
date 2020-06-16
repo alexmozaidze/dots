@@ -1,0 +1,2 @@
+#!/bin/zsh
+echo "$(xprop -root | grep _NET_ACTIVE_WINDOW\(WINDOW\))"
