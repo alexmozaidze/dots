@@ -6,6 +6,10 @@ ctrl + shift + x
 ctrl + shift + i
 	firefox
 
+# Launch Emacs
+ctrl + shift + e
+	emacs
+
 # Launch terminal
 ctrl + shift + Return
 	st
@@ -27,7 +31,7 @@ ctrl + shift + z
 	zathura
 
 ctrl + shift + b
-	timeshift-gtk	
+	timeshift-gtk
 
 # Choose emoji using dmenu and copy it in clipboard
 ctrl + shift + u

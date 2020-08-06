@@ -1,0 +1,34 @@
+! Other XTerm settings
+*viualBell:             False
+UXTerm*cursorBlink:     False
+UXTerm*termName:        xterm-24bit
+UXTerm*internalBorder:  2
+UXTerm*scrollBar:       False
+UXTerm*metaSendsEscape: True
+UXTerm*backarrowKey:    False
+UXTerm*locale:          True
+UXTerm*saveLines:       4096
+
+! XTerm fonts
+UXTerm*renderFont:      True
+UXTerm*faceName:        xft:Liberation Mono:size=12:antialias=true
+
+! XTerm colors
+UXTerm*background:      rgb:28/2c/34
+UXTerm*foreground:      rgb:ab/b2/bf
+UXTerm*color0:          rgb:28/2c/34
+UXTerm*color1:          rgb:e0/6c/75
+UXTerm*color2:          rgb:98/c3/79
+UXTerm*color3:          rgb:e5/c0/7b
+UXTerm*color4:          rgb:61/af/ef
+UXTerm*color5:          rgb:c6/78/dd
+UXTerm*color6:          rgb:56/b6/c2
+UXTerm*color7:          rgb:ab/b2/bf
+UXTerm*color8:          rgb:28/2c/34
+UXTerm*color9:          rgb:e0/6c/75
+UXTerm*color10:         rgb:98/c3/79
+UXTerm*color11:         rgb:e5/c0/7b
+UXTerm*color12:         rgb:61/af/ef
+UXTerm*color13:         rgb:c6/78/dd
+UXTerm*color14:         rgb:56/b6/c2
+UXTerm*color15:         rgb:ab/b2/bf

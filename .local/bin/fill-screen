@@ -1,0 +1,7 @@
+#!/bin/lua
+-- A scrit to fill up a screen with junk numbers
+i = 0
+while i < 100000 do
+	print(i)
+	i = i + 1
+end

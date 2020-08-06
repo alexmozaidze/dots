@@ -5,8 +5,12 @@ LS_DEFAULT_OPTIONS="--group-directories-first --color=always"
 GREP_DEFAULT_OPTIONS="--color=always"
 
 # Nvim and Vim aliases
-alias nvim="nvim -n"
+alias nvim="nvim"
 alias erc="nvim ~/.config/nvim/init.vim"
+alias python="python3"
+
+# Emacs alias
+alias emacs="emacs -nw"
 
 # Aliases for ls and exa commands
 alias ls="ls ${LS_DEFAULT_OPTIONS}"
